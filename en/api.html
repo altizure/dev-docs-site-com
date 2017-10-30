@@ -240,16 +240,27 @@
 <p>The API can be called by any libs and programming languages that can issue a http post request.</p>
 <p>For example:</p>
 <p><em>JQurey in Javascript</em></p>
-<pre><code>$.ajax({
-    type: &apos;POST&apos;,
-    url: &apos;https://api.altizure.com/graphql&apos;,
+<pre><code class="lang-js">$.ajax({
+    type: <span class="hljs-string">&apos;POST&apos;</span>,
+    url: <span class="hljs-string">&apos;https://api.altizure.com/graphql&apos;</span>,
     headers: {
-      altitoken: &apos;user token&apos;,
-      key: &apos;app key&apos;
+      altitoken: <span class="hljs-string">&apos;user token&apos;</span>,
+      key: <span class="hljs-string">&apos;app key&apos;</span>
     },
-    data: &apos;query=&apos; + &apos;GraphGL query string&apos;
+    data: <span class="hljs-string">&apos;query=&apos;</span> + <span class="hljs-string">&apos;GraphGL query string&apos;</span>
   })
-</code></pre><h2 id="5-learn-more">5. Learn more</h2>
+</code></pre>
+<h2 id="5-obtain-user-token">5. Obtain user token</h2>
+<p>User token is obtained via the standard OAuth 2 flow.</p>
+<p>The authorization endpoint is the following url:</p>
+<pre><code class="lang-js"><span class="hljs-string">`https://api.altizure.com/start?client_id=<span class="hljs-subst">${appKey}</span>&amp;response_type=token&amp;redirect_uri=<span class="hljs-subst">${redirect_uri}</span>`</span>
+</code></pre>
+<p>where <strong>appKey</strong> is your application key, and <strong>redirect_uri</strong> is one of the domains associated with your application.</p>
+<p>Your application needs to route/open this url. A form will be shown to your users asking for their authorizations.
+After your users have authorized the request, the page will be redirected back to your <strong>redirect_uri</strong> with a url hash variable of key: <strong>access_token</strong>.</p>
+<p>For mobile application, the <strong>redirect_uri</strong> will be your application&apos;s bundle identifier name (iOS) or your package name (android).</p>
+<p>For a vanilla JS implementation, please refer to <a href="https://github.com/altizure/api-demo-minimal/blob/master/index.html" target="_blank">here</a>.</p>
+<h2 id="6-learn-more">6. Learn more</h2>
 <ul>
 <li>Learn more about <a href="http://graphql.org/learn/" target="_blank">GraphQL</a></li>
 <li>Use <a href="jssdk.html">Altizure Javascript SDK</a> to developer rich 3D application</li>
@@ -298,7 +309,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GraphGL API","level":"1.4","depth":1,"next":{"title":"Javascript SDK","level":"1.5","depth":1,"path":"jssdk.md","ref":"jssdk.md","articles":[]},"previous":{"title":"Developer Account","level":"1.3","depth":1,"path":"dev-account.md","ref":"dev-account.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","custom-favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":"auto","token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","links":{"home":"https://docs.altizure.com"},"gitbook":"*"},"file":{"path":"api.md","mtime":"2017-10-30T09:19:01.182Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-30T09:36:11.151Z"},"basePath":".","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"GraphGL API","level":"1.4","depth":1,"next":{"title":"Javascript SDK","level":"1.5","depth":1,"path":"jssdk.md","ref":"jssdk.md","articles":[]},"previous":{"title":"Developer Account","level":"1.3","depth":1,"path":"dev-account.md","ref":"dev-account.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","custom-favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":"auto","token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","links":{"home":"https://docs.altizure.com"},"gitbook":"*"},"file":{"path":"api.md","mtime":"2017-10-30T11:02:19.254Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-30T11:02:25.263Z"},"basePath":".","book":{"language":"en"}});
         });
     </script>
 </div>
