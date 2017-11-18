@@ -1,0 +1,347 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Images Upload · Altizure Open Platform Documentation</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Altizure Team">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="jssdk.html" />
+    
+    
+    <link rel="prev" href="api.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="concepts.html">
+            
+                <a href="concepts.html">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="dev-account.html">
+            
+                <a href="dev-account.html">
+            
+                    
+                    Developer Account
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="api.html">
+            
+                <a href="api.html">
+            
+                    
+                    GraphGL API
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="upload.html">
+            
+                <a href="upload.html">
+            
+                    
+                    Images Upload
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="jssdk.html">
+            
+                <a href="jssdk.html">
+            
+                    
+                    Javascript SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Images Upload</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="using-the-upload-api">Using the upload API</h1>
+<h2 id="overview">Overview</h2>
+<p>To speed up data transfer, images are uploaded directly from clients to Amazon
+or Aliyun. Your image are protected securely. Others could not read or modify your images. That is why you need to obtain the authorizations from our api. As filename is the only identifier in the buckets, the image is required to be uploaded to a specific url (S3) or prefix (OSS) so that Altizure knows which image is which.</p>
+<h3 id="1-choose-bucket">1. Choose bucket</h3>
+<p>Choose one of the fastest S3 or OSS buckets. This is largely correlated to your network zone with the edge-points.
+You may simply query <code>GeoIPInfo.nearestBuckets</code> for hints for auto selecting the best edge for your clients.</p>
+<h3 id="2-compute-image-checksum">2. Compute image checksum</h3>
+<p>Compute the sha1sum hash for each image.
+Before each upload, check if the current image has already been uploaded by calling the mutation <code>hasImage(pid, checksum)</code>.
+If it is not, proceed to the next step. Otherwise, skip to the next image.</p>
+<h3 id="3-upload-to-oss">3. Upload to OSS</h3>
+<p>If an OSS bucket is chosen, obtain STS and the related meta image info (e.g. id and hashed filename) by calling mutation <code>uploadImageOSS(pid, bucket, filename, type, checksum)</code>. STS is a temporary (1 hour) security token for the write only permission on the <code>/pid</code> prefix.
+If it has expired, renew with the same mutation. Otherwise, only request the <code>image</code> gql fragment from the result, and re-use the same STS for performance reason. As signing from Aliyun is slow, one should not sign a new STS for each image.</p>
+<p>Given the STS, images could be uploaded via any compatible protocol or library to OSS. It is required to upload with the specific hashed filename according to the image info returned from the <code>uploadImageOSS</code> mutation. Specifically, it is required to be put to the path <code>${pid}/${image.filename}</code> inside the bucket.</p>
+<p>In order to keep track of the state, just before an image is uploaded, call mutation <code>startImageUpload(id)</code> to signal the start of the process. When the upload is done, call mutation <code>doneImageUpload(id)</code>.</p>
+<h3 id="3-upload-to-s3">3. Upload to S3</h3>
+<p>If a S3 bucket is chosen, uploading is much simpler.
+For each image, call the mutation <code>uploadImageS3(pid, bucket, filename, type, checksum)</code> to obtain a temporary (3 hours) signed url and the related meta image info.</p>
+<p>Given the signed url, use the standard HTTP put to put the file to this url with <code>Content-type: JPEG</code> or other formats accordingly.</p>
+<p>Just before each upload, it is required to call mutation <code>startImageUpload(id)</code>. There is no need to signal the end of uploading.</p>
+<h3 id="4-wait-for-image-processing">4. Wait for image processing</h3>
+<p>Uploaded images will be copied, verified and processed. Eventually, the image state will become either <code>Ready</code> or <code>Invalid</code>.
+If the total count of <code>Ready</code> matches the desired number, you may call mutation <code>startReconstructionWithError(id, options)</code> to start the reconstruction. Otherwise, you may consider re-uploading any outstanding image as indicated by the mutation <code>hasImage</code>.</p>
+<p>If you do not concern about a few number of missing images and want to start the reconstruction immediately once all the images are ready, you could call mutation <code>preStartReconstruction(id, options)</code>.</p>
+<h2 id="learn-more">Learn more</h2>
+<ul>
+<li>Learn more about <a href="https://www.alibabacloud.com/help/doc-detail/31953.htm?spm=a3c0i.o31952en.b99.284.7ab2aa72OYaf6D" target="_blank">STS</a></li>
+</ul>
+<hr>
+<p>Last modified at Sun Nov 19 2017 00:30:14 GMT+0800 (HKT)</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="api.html" class="navigation navigation-prev " aria-label="Previous page: GraphGL API">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="jssdk.html" class="navigation navigation-next " aria-label="Next page: Javascript SDK">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Images Upload","level":"1.4.1","depth":2,"next":{"title":"Javascript SDK","level":"1.5","depth":1,"path":"jssdk.md","ref":"jssdk.md","articles":[]},"previous":{"title":"GraphGL API","level":"1.4","depth":1,"path":"api.md","ref":"api.md","articles":[{"title":"Images Upload","level":"1.4.1","depth":2,"path":"upload.md","ref":"upload.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","custom-favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":"auto","token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure Open Platform Documentation","language":"en","links":{"home":"https://docs.altizure.com"},"gitbook":"*","description":"Altizure Development Platform. Unleash the power of realistic 3D models"},"file":{"path":"upload.md","mtime":"2017-11-18T16:30:14.773Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-18T16:30:33.519Z"},"basePath":".","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
