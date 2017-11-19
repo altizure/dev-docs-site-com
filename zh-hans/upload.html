@@ -1,14 +1,14 @@
 
 <!DOCTYPE HTML>
-<html lang="en" >
+<html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Images Upload · Altizure Open Platform Documentation</title>
+        <title>上传图像 · Altizure 开发平台文档</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
-        <meta name="author" content="Altizure Team">
+        <meta name="author" content="Altizure 开发团队">
         
         
     
@@ -75,7 +75,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+    <input type="text" placeholder="输入并搜索" />
 </div>
 
             
@@ -98,7 +98,7 @@
                 <a href="./">
             
                     
-                    Introduction
+                    简介
             
                 </a>
             
@@ -111,7 +111,7 @@
                 <a href="concepts.html">
             
                     
-                    Concepts
+                    基本概念
             
                 </a>
             
@@ -124,7 +124,7 @@
                 <a href="dev-account.html">
             
                     
-                    Developer Account
+                    开发者账号申请
             
                 </a>
             
@@ -151,7 +151,7 @@
                 <a href="upload.html">
             
                     
-                    Images Upload
+                    上传图像
             
                 </a>
             
@@ -175,6 +175,38 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="jssdk-demo.html">
+            
+                <a href="jssdk-demo.html">
+            
+                    
+                    演示应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="jssdk-faq.html">
+            
+                <a href="jssdk-faq.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
 
@@ -184,7 +216,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+            本书使用 GitBook 发布
         </a>
     </li>
 </ul>
@@ -207,7 +239,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Images Upload</a>
+        <a href="." >上传图像</a>
     </h1>
 </div>
 
@@ -222,37 +254,42 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="using-the-upload-api">Using the upload API</h1>
-<h2 id="overview">Overview</h2>
-<p>To speed up data transfer, images are uploaded directly from clients to Amazon
-or Aliyun. Your image are protected securely. Others could not read or modify your images. That is why you need to obtain the authorizations from our api. As filename is the only identifier in the buckets, the image is required to be uploaded to a specific url (S3) or prefix (OSS) so that Altizure knows which image is which.</p>
-<h3 id="1-choose-bucket">1. Choose bucket</h3>
-<p>Choose one of the fastest S3 or OSS buckets. This is largely correlated to your network zone with the edge-points.
-You may simply query <code>GeoIPInfo.nearestBuckets</code> for hints for auto selecting the best edge for your clients.</p>
-<h3 id="2-compute-image-checksum">2. Compute image checksum</h3>
-<p>Compute the sha1sum hash for each image.
-Before each upload, check if the current image has already been uploaded by calling the mutation <code>hasImage(pid, checksum)</code>.
-If it is not, proceed to the next step. Otherwise, skip to the next image.</p>
-<h3 id="3-upload-to-oss">3. Upload to OSS</h3>
+                                <h1 id="&#x5982;&#x4F55;&#x4F7F;&#x7528;-graphql-api-&#x4E0A;&#x4F20;&#x7528;&#x4E09;&#x7EF4;&#x91CD;&#x5EFA;&#x7684;&#x56FE;&#x50CF;">&#x5982;&#x4F55;&#x4F7F;&#x7528; GraphQL API &#x4E0A;&#x4F20;&#x7528;&#x4E09;&#x7EF4;&#x91CD;&#x5EFA;&#x7684;&#x56FE;&#x50CF;</h1>
+<h2 id="&#x6982;&#x51B5;">&#x6982;&#x51B5;</h2>
+<p>&#x4E3A;&#x4E86;&#x83B7;&#x5F97;&#x6700;&#x4F73;&#x7684;&#x4E0A;&#x4F20;&#x901F;&#x5EA6;&#xFF0C;&#x7528;&#x4E8E;&#x4E09;&#x7EF4;&#x91CD;&#x5EFA;&#x7684;&#x56FE;&#x50CF;&#x5C06;&#x76F4;&#x63A5;&#x4ECE;&#x5BA2;&#x6237;&#x7535;&#x8111;&#x4F20;&#x8F93;&#x5230;&#x6211;&#x4EEC;&#x7684;&#x4E9A;&#x9A6C;&#x900A;&#x6216;&#x8005;&#x963F;&#x91CC;&#x4E91;&#x7684;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x91CC;&#x3002;
+&#x4F20;&#x8F93;&#x548C;&#x5B58;&#x50A8;&#x4E2D;&#xFF0C;&#x4F60;&#x7684;&#x56FE;&#x50CF;&#x5C06;&#x88AB;&#x4E25;&#x683C;&#x4FDD;&#x5BC6;&#xFF0C;&#x5176;&#x4ED6;&#x4EFB;&#x4F55;&#x4EBA;&#x90FD;&#x4E0D;&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x548C;&#x4FEE;&#x6539;&#x4F60;&#x7684;&#x56FE;&#x50CF;&#x3002;
+&#x6240;&#x4EE5;&#x4E0A;&#x4F20;&#x5F00;&#x59CB;&#x524D;&#x9700;&#x8981;&#x5F00;&#x53D1;&#x8005;&#x901A;&#x8FC7;&#x6211;&#x4EEC;&#x7684; API &#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x7684;&#x9274;&#x6743;&#x4EE4;&#x724C;&#x3002;</p>
+<p>As filename is the only identifier in the buckets, the image is required to be uploaded to a specific url (S3) or prefix (OSS) so that Altizure knows which image is which.</p>
+<h3 id="1-&#x9009;&#x62E9;&#x6700;&#x8FD1;&#x7684;-bucket">1. &#x9009;&#x62E9;&#x6700;&#x8FD1;&#x7684; bucket</h3>
+<p>&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>GeoIPInfo.nearestBuckets</code> &#x8FD9;&#x4E2A;&#x67E5;&#x8BE2;&#x6765;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7528;&#x6237;&#x6700;&#x8FD1;&#x7684; Bucket &#x7528;&#x4E8E;&#x4E0A;&#x4F20;&#xFF0C;&#x4EE5;&#x8FBE;&#x5230;&#x6700;&#x5FEB;&#x7684;&#x4E0A;&#x4F20;&#x901F;&#x5EA6;&#x3002;</p>
+<h3 id="2-&#x8BA1;&#x7B97;&#x56FE;&#x50CF;&#x6821;&#x9A8C;&#x7801;">2. &#x8BA1;&#x7B97;&#x56FE;&#x50CF;&#x6821;&#x9A8C;&#x7801;</h3>
+<p>&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x56FE;&#x50CF;&#x4E0A;&#x4F20;&#x7684;&#x7A33;&#x5B9A;&#x6027;&#x548C;&#x6570;&#x636E;&#x7684;&#x4E00;&#x81F4;&#x6027;&#x3002;&#x5728;&#x4E0A;&#x4F20;&#x6BCF;&#x5F20;&#x56FE;&#x50CF;&#x524D;&#x5F00;&#x53D1;&#x8005;&#x5FC5;&#x987B;</p>
+<ul>
+<li>&#x8BA1;&#x7B97;&#x7684;&#x56FE;&#x50CF;&#x7684; <strong>sha1sum</strong> &#x6821;&#x9A8C;&#x7801;</li>
+<li>&#x8C03;&#x7528; mutation <code>hasImage(pid, sha1sum)</code> &#x68C0;&#x67E5;&#x56FE;&#x50CF;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x9879;&#x76EE; <code>pid</code> &#x91CC;&#x5B58;&#x5728;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x56FE;&#x50CF;&#x5B58;&#x5728;&#x5219;&#x8DF3;&#x8FC7;&#x8BE5;&#x56FE;&#x50CF;&#x65E0;&#x9700;&#x4E0A;&#x4F20;&#xFF1B;&#x5982;&#x679C;&#x56FE;&#x50CF;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x4E0A;&#x4F20;&#x56FE;&#x50CF;&#x3002;</li>
+</ul>
+<h3 id="3-&#x4E0A;&#x4F20;">3. &#x4E0A;&#x4F20;</h3>
+<h5 id="31-&#x4E0A;&#x4F20;&#x5230;&#x963F;&#x91CC;&#x4E91;&#x7684;oss">3.1 &#x4E0A;&#x4F20;&#x5230;&#x963F;&#x91CC;&#x4E91;&#x7684;OSS</h5>
 <p>If an OSS bucket is chosen, obtain STS and the related meta image info (e.g. id and hashed filename) by calling mutation <code>uploadImageOSS(pid, bucket, filename, type, checksum)</code>. STS is a temporary (1 hour) security token for the write only permission on the <code>/pid</code> prefix.
 If it has expired, renew with the same mutation. Otherwise, only request the <code>image</code> gql fragment from the result, and re-use the same STS for performance reason. As signing from Aliyun is slow, one should not sign a new STS for each image.</p>
 <p>Given the STS, images could be uploaded via any compatible protocol or library to OSS. It is required to upload with the specific hashed filename according to the image info returned from the <code>uploadImageOSS</code> mutation. Specifically, it is required to be put to the path <code>${pid}/${image.filename}</code> inside the bucket.</p>
 <p>In order to keep track of the state, just before an image is uploaded, call mutation <code>startImageUpload(id)</code> to signal the start of the process. When the upload is done, call mutation <code>doneImageUpload(id)</code>.</p>
-<h3 id="3-upload-to-s3">3. Upload to S3</h3>
+<h5 id="32-&#x4E0A;&#x4F20;&#x5230;&#x4E9A;&#x9A6C;&#x900A;&#x7684;s3">3.2 &#x4E0A;&#x4F20;&#x5230;&#x4E9A;&#x9A6C;&#x900A;&#x7684;S3</h5>
 <p>If a S3 bucket is chosen, uploading is much simpler.
 For each image, call the mutation <code>uploadImageS3(pid, bucket, filename, type, checksum)</code> to obtain a temporary (3 hours) signed url and the related meta image info.</p>
 <p>Given the signed url, use the standard HTTP put to put the file to this url with <code>Content-type: JPEG</code> or other formats accordingly.</p>
 <p>Just before each upload, it is required to call mutation <code>startImageUpload(id)</code>. There is no need to signal the end of uploading.</p>
-<h3 id="4-wait-for-image-processing">4. Wait for image processing</h3>
+<h3 id="4-&#x7B49;&#x5F85;&#x56FE;&#x50CF;&#x9884;&#x5904;&#x7406;">4. &#x7B49;&#x5F85;&#x56FE;&#x50CF;&#x9884;&#x5904;&#x7406;</h3>
 <p>Uploaded images will be copied, verified and processed. Eventually, the image state will become either <code>Ready</code> or <code>Invalid</code>.
 If the total count of <code>Ready</code> matches the desired number, you may call mutation <code>startReconstructionWithError(id, options)</code> to start the reconstruction. Otherwise, you may consider re-uploading any outstanding image as indicated by the mutation <code>hasImage</code>.</p>
 <p>If you do not concern about a few number of missing images and want to start the reconstruction immediately once all the images are ready, you could call mutation <code>preStartReconstruction(id, options)</code>.</p>
-<h2 id="learn-more">Learn more</h2>
+<h2 id="&#x4E86;&#x89E3;&#x66F4;&#x591A;">&#x4E86;&#x89E3;&#x66F4;&#x591A;</h2>
 <ul>
-<li>Learn more about <a href="https://www.alibabacloud.com/help/doc-detail/31953.htm?spm=a3c0i.o31952en.b99.284.7ab2aa72OYaf6D" target="_blank">STS</a></li>
+<li>&#x4E86;&#x89E3;&#x66F4;&#x591A;&#x5173;&#x4E8E; <a href="https://www.alibabacloud.com/help/doc-detail/31953.htm?spm=a3c0i.o31952en.b99.284.7ab2aa72OYaf6D" target="_blank">STS</a> &#x7684;&#x4FE1;&#x606F;</li>
 </ul>
 <hr>
-<p>Last modified at Sun Nov 19 2017 00:30:14 GMT+0800 (HKT)</p>
+<p>Last modified at Sun Nov 19 2017 13:30:13 GMT+0800 (HKT)</p>
 
                                 
                                 </section>
@@ -296,7 +333,7 @@ If the total count of <code>Ready</code> matches the desired number, you may cal
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Images Upload","level":"1.4.1","depth":2,"next":{"title":"Javascript SDK","level":"1.5","depth":1,"path":"jssdk.md","ref":"jssdk.md","articles":[]},"previous":{"title":"GraphGL API","level":"1.4","depth":1,"path":"api.md","ref":"api.md","articles":[{"title":"Images Upload","level":"1.4.1","depth":2,"path":"upload.md","ref":"upload.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","custom-favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":"auto","token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure Open Platform Documentation","language":"en","links":{"home":"https://docs.altizure.com"},"gitbook":"*","description":"Altizure Development Platform. Unleash the power of realistic 3D models"},"file":{"path":"upload.md","mtime":"2017-11-18T16:30:14.773Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-19T05:30:20.825Z"},"basePath":".","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"上传图像","level":"1.4.1","depth":2,"next":{"title":"Javascript SDK","level":"1.5","depth":1,"path":"jssdk.md","ref":"jssdk.md","articles":[{"title":"演示应用","level":"1.5.1","depth":2,"path":"jssdk-demo.md","ref":"jssdk-demo.md","articles":[]},{"title":"常见问题","level":"1.5.2","depth":2,"path":"jssdk-faq.md","ref":"jssdk-faq.md","articles":[]}]},"previous":{"title":"GraphGL API","level":"1.4","depth":1,"path":"api.md","ref":"api.md","articles":[{"title":"上传图像","level":"1.4.1","depth":2,"path":"upload.md","ref":"upload.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","custom-favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":"auto","token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure 开发团队","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure 开发平台文档","language":"zh-hans","links":{"home":"https://docs.altizure.com"},"gitbook":"*","description":"关注 Altizure 开发平台，释放实景三维的无穷魅力"},"file":{"path":"upload.md","mtime":"2017-11-19T05:30:13.566Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-19T05:30:20.825Z"},"basePath":".","book":{"language":"zh-hans"}});
         });
     </script>
 </div>
