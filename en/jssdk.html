@@ -221,14 +221,143 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="altizure-javascript-sdk">Altizure Javascript SDK</h1>
-<p>Altizure Javascript SDK allows you to integrate rich 3D experience with our realistic 3D models to your business workflow. Combined with tools like Electron and React Native, you can easily develop high quality 3D applications with realistic models for desktop and mobile apps.</p>
-<h2 id="1-basics">1. Basics</h2>
-<p>Coming soon</p>
-<h2 id="2-sample">2. Sample</h2>
-<p>Coming soon</p>
-<h2 id="3-reference-manual">3. Reference manual</h2>
-<p>Coming soon</p>
-<h2 id="4-learn-more">4. Learn more</h2>
+<p>Altizure Javascript SDK allows you to integrate rich 3D experience with our realistic 3D models to your business workflow.</p>
+<ul>
+<li>Simplify the loading and rendering of large-scale realistic 3D models.</li>
+<li>Simplify the fusion and rendering data from different sources.</li>
+<li>Simplify the development of integrating realistic 3D models to different business workflows.</li>
+</ul>
+<p>Combined with tools like Electron and React Native, you can easily develop high quality 3D applications with realistic models for desktop and mobile apps.</p>
+<h2 id="1-quick-start">1. Quick Start</h2>
+<h5 id="include-sdk">Include SDK</h5>
+<p>In the <code>&lt;head&gt;</code> section of the html page, include our SDK as</p>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- Set the encoding to make sure that utf8 character is shown correctly --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- Set the viewport to make the page look correct on mobile --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0, user-scalable=no&quot;</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- Include SDK --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://beta.altizure.com/sdk&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>Here we provide three links for our SDK.</p>
+<ul>
+<li>Latest&#xFF1A;<code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://beta.altizure.com/sdk&quot;&gt;&lt;/script&gt;</code></li>
+<li>Stable&#xFF1A;<code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://www.altizure.com/sdk&quot;&gt;&lt;/script&gt;</code></li>
+<li>Mainland China&#xFF1A;<code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://www.altizure.cn/sdk&quot;&gt;&lt;/script&gt;</code></li>
+</ul>
+<h5 id="create-a-div-as-a-container-for-3d-rendering">Create a div as a container for 3D rendering</h5>
+<p>Our SDK will take over the downloading and rendering of realstic 3D models. Developers should create a <code>div</code> and attach a sandbox object to it. This div specifies where 3D contents will be rendered.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;page-content&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<h5 id="create-a-sandbox-object">Create a sandbox object</h5>
+<p>We now create a sandbox object and attach it to the div we created to hold this sandbox. Then the sandbox object will render all 3D contents in such a div.</p>
+<pre><code class="lang-js"><span class="hljs-comment">// Create an option for configuring the sandbox</span>
+<span class="hljs-keyword">let</span> options = {
+  altizureApi:{
+    <span class="hljs-comment">// your app key</span>
+    key: <span class="hljs-string">&apos;your-app-key&apos;</span>
+  }
+}
+
+<span class="hljs-comment">// Create a sanbox object and attach it to the div page-content.</span>
+<span class="hljs-keyword">let</span> sandbox = <span class="hljs-keyword">new</span> altizure.Sandbox(<span class="hljs-string">&apos;page-content&apos;</span>, options)
+</code></pre>
+<p><code>&apos;page-content&apos;</code> is the id of <code>div</code> where the 3D contents are rendered. <code>options</code> is used to configure the sandbox. Please refer to our sample section for more information about how to configure a sandbox.</p>
+<h5 id="summary">Summary</h5>
+<p>All codes can be put together as:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0, user-scalable=no&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://beta.altizure.com/sdk&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;page-content&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">let</span> options = {
+      altizureApi:{
+        <span class="hljs-comment">// your app key</span>
+        key: <span class="hljs-string">&apos;your-app-key&apos;</span>
+      }
+    }
+
+    <span class="hljs-keyword">let</span> sandbox = <span class="hljs-keyword">new</span> altizure.Sandbox(<span class="hljs-string">&apos;page-content&apos;</span>, options)
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>Save this code fragment to <code>&lt;path&gt;/altizure-sdk-test/earth.html</code>. Then start a http server in your console by typing</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> &lt;path&gt;/altizure-sdk-test/
+python -m SimpleHTTPServer
+</code></pre>
+<p>This page can be accessed at <code>http://127.0.0.1:8000/earth.html</code> to load Altizure Earth</p>
+<p>You can check this <a href="https://altizure.github.io/sdk.examples/1-1-altizure-earth/index.html" target="_blank">demo</a> on our site to see how it looks.</p>
+<p>In the following, you can learn more about our SDK via samples and demos.</p>
+<h2 id="2-samples">2. Samples</h2>
+<p>Up-to-date live samples are at <a href="https://altizure.github.io/sdk.examples/examples.sdk.html" target="_blank">altizure.github.io/sdk.examples/examples.sdk.html</a>.</p>
+<h4 id="21-concepts">2.1 Concepts</h4>
+<p>Here we start with some concepts in our SDK.</p>
+<ul>
+<li>Sandbox: altizure.Sandbox is the core of the 3D engine. It is the entry point of the development and handles all 3D rendering and data management.</li>
+</ul>
+<p>The source code of these samples can be downloaded at <a href="https://github.com/altizure/sdk.examples/" target="_blank">github.com/altizure/sdk.examples</a>. You can easily setup your server and run these samples following the tutorial.</p>
+<p>Any questions and bugs, please feel free to write on our <a href="https://github.com/altizure/sdk.examples/issues" target="_blank">issue page</a>.</p>
+<h4 id="22-list-of-samples">2.2 List of Samples</h4>
+<ul>
+<li>2.2.1 Sandbox setting<ul>
+<li><a href="https://altizure.github.io/sdk.examples/1-1-altizure-earth" target="_blank">Default loading</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/1-2-open-animation" target="_blank">Loading animation</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/1-3-render-items" target="_blank">Sandbox customization</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/1-4-lunar" target="_blank">Planet setup</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/1-5-background" target="_blank">Background setting</a></li>
+</ul>
+</li>
+<li>2.2.2 Marker sample<ul>
+<li><a href="https://altizure.github.io/sdk.examples/2-1-add-project" target="_blank">Altizure project</a><ul>
+<li><a href="https://altizure.github.io/sdk.examples/2-1-add-project-water" target="_blank">Water setting</a></li>
+</ul>
+</li>
+<li><a href="https://altizure.github.io/sdk.examples/2-2-add-tag" target="_blank">Customized tag</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/2-3-add-polygon" target="_blank">Polygon and polyhedron</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/2-4-add-polyline" target="_blank">Polyline</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/2-5-add-obj-model" target="_blank">OBJ models</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/2-6-add-textTag" target="_blank">Text tag</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/2-7-add-label-line" target="_blank">Polyline with text label</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/2-8-polycylinder" target="_blank">Cylinder polyline</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/2-9-add-canvasTag" target="_blank">Canvas Tag</a></li>
+</ul>
+</li>
+<li>2.2.3 Interaction<ul>
+<li><a href="https://altizure.github.io/sdk.examples/3-1-mouse-events" target="_blank">Binding mouse event</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/3-2-event-off" target="_blank">Unbinding event</a></li>
+</ul>
+</li>
+<li>2.2.4 Get coordinates<ul>
+<li><a href="https://altizure.github.io/sdk.examples/4-1-earth-pickpoint" target="_blank">Coordinates on earth</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/4-2-project-pickpoint" target="_blank">Coordinates on models</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/4-3-window-to-lnglatalt" target="_blank">Mapping window coordinates to geo coordinates</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/4-4-window-from-lnglatalt" target="_blank">Mapping geo coordinates to window coordinates</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/4-5-lnglat-to-alt" target="_blank">Get altitude given longitude and latitude</a></li>
+</ul>
+</li>
+<li>2.2.5 Camera manipulation<ul>
+<li><a href="https://altizure.github.io/sdk.examples/5-1-camera-pose" target="_blank">Camera pose</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/5-2-camera-fly" target="_blank">Camera flight animation</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/5-3-camera-range" target="_blank">Camera motion constraint</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/5-4-camera-control" target="_blank">Camera controls</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/5-5-camera-mat" target="_blank">Camera matrix</a></li>
+</ul>
+</li>
+<li>2.2.6 Others<ul>
+<li><a href="https://altizure.github.io/sdk.examples/6-1-crop-project" target="_blank">Cropping models</a></li>
+<li><a href="https://altizure.github.io/sdk.examples/6-2-measurement-volume" target="_blank">Volume measurement</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="3-faq">3. FAQ</h2>
+<p>Coming soon...</p>
+<h2 id="4-learn-more">4. Learn More</h2>
 <ul>
 <li><a href="https://threejs.org/" target="_blank">ThreeJS</a></li>
 <li><a href="https://www.khronos.org/webgl/" target="_blank">WebGL</a></li>
@@ -237,7 +366,7 @@
 <li><a href="http://www.songho.ca/opengl/gl_transform.html" target="_blank">OpenGL Transformation</a></li>
 </ul>
 <hr>
-<p>Last modified at Wed Nov 15 2017 15:30:16 GMT+0800 (HKT)</p>
+<p>Last modified at Fri Dec 08 2017 15:30:14 GMT+0800 (HKT)</p>
 
                                 
                                 </section>
@@ -277,7 +406,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Javascript SDK","level":"1.5","depth":1,"previous":{"title":"Images Upload","level":"1.4.1","depth":2,"path":"upload.md","ref":"upload.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","custom-favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":"auto","token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure Open Platform Documentation","language":"en","links":{"home":"https://docs.altizure.com"},"gitbook":"*","description":"Altizure Development Platform. Unleash the power of realistic 3D models"},"file":{"path":"jssdk.md","mtime":"2017-11-15T07:30:16.007Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-07T12:30:33.493Z"},"basePath":".","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Javascript SDK","level":"1.5","depth":1,"previous":{"title":"Images Upload","level":"1.4.1","depth":2,"path":"upload.md","ref":"upload.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","custom-favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":"auto","token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure Open Platform Documentation","language":"en","links":{"home":"https://docs.altizure.com"},"gitbook":"*","description":"Altizure Development Platform. Unleash the power of realistic 3D models"},"file":{"path":"jssdk.md","mtime":"2017-12-08T07:30:14.853Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T07:30:31.192Z"},"basePath":".","book":{"language":"en"}});
         });
     </script>
 </div>
