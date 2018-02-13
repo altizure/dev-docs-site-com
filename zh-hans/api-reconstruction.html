@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>API 更新日志 · Altizure 开发平台文档</title>
+        <title>三维重建 · Altizure 开发平台文档</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,8 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="jssdk.html" />
+    <link rel="next" href="upload.html" />
     
+    
+    <link rel="prev" href="api.html" />
     
 
     </head>
@@ -144,7 +146,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="api-reconstruction.html">
+        <li class="chapter active" data-level="1.4.1" data-path="api-reconstruction.html">
             
                 <a href="api-reconstruction.html">
             
@@ -183,7 +185,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.4" data-path="api-changelog.html">
+        <li class="chapter " data-level="1.4.4" data-path="api-changelog.html">
             
                 <a href="api-changelog.html">
             
@@ -302,7 +304,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >API 更新日志</a>
+        <a href="." >三维重建</a>
     </h1>
 </div>
 
@@ -317,16 +319,54 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="altizure-graphql-api-&#x66F4;&#x65B0;&#x65E5;&#x5FD7;">Altizure GraphQL API &#x66F4;&#x65B0;&#x65E5;&#x5FD7;</h1>
-<h3 id="01x">0.1.x</h3>
-<p><strong>Release data:</strong>
-2018&#x5E74;2&#x6708;12&#x65E5;</p>
-<p><strong>New features:</strong></p>
-<ul>
-<li>&#x5728; <code>/graphql</code> &#x63D0;&#x4F9B;&#x53EF;&#x6D4F;&#x89C8;&#x7684;&#x6587;&#x6863;&#x754C;&#x9762;&#x3002;</li>
-</ul>
-<p><strong>Improvements:</strong></p>
-<p><strong>Bug fixes:</strong></p>
+                                <h1 id="how-to-do-3d-reconstruction-via-api">How to do 3D Reconstruction via API</h1>
+<h3 id="overview">Overview</h3>
+<p>Each user could create multiple projects. But one project could only be owned by one user.
+The project created via API is owned by the user whose user token is passed along the request.</p>
+<h3 id="1-create-a-project">1. Create a project</h3>
+<p>Send a GraphQL request with your application key and user token (not necessarily your own).
+Call with the required project name (not necessarily unique), and optional project type (free or pro).
+This step would not cost any coin to run.
+But if the coin balance is not enough for the pro project, it is not allowed to start a reconstruction task.
+If successful, the Project type will be returned, otherwise it would be null.
+From this type, you could get the id field.
+This project id is used as an argument in all of the project related queries and mutations.</p>
+<p><strong>Sample Code</strong></p>
+<pre><code class="lang-js">mutation {
+  createProject(name: <span class="hljs-string">&quot;sample project&quot;</span>, type: free) {
+    id
+  }
+}
+</code></pre>
+<h3 id="2-upload-images">2. Upload images</h3>
+<p>After a project is created, you can start to let users upload images as <a href="upload.html">upload image tutorial</a>.
+When the upload finishes, a reconstruction task could be created to start a reconstruction.</p>
+<h3 id="3-start-the-reconstruction">3. Start the reconstruction</h3>
+<p>Send a GraphQL request with the required project id, with an optional coupon id.
+The project id is obtained from either the mutation: createProject or query: my.projects.
+The coupon id (if any) is obtained from query: my.coupons.
+This step would cost coin if it is a pro project (without coupon).</p>
+<p>If successful, a new task object would be created and returned.
+Otherwise, an error would be returned.
+There are 10 types of error.
+Details could be found in the GraphQL docs.</p>
+<p><strong>Sample Code</strong></p>
+<pre><code class="lang-js">mutation startReconstructionWithError {
+  startReconstructionWithError(id: <span class="hljs-string">&quot;54ed8e5741fbfa3e1967fe9b&quot;</span>) {
+    error {
+      code
+    }
+    task {
+      id
+      state
+    }
+  }
+}
+</code></pre>
+<h3 id="4-check-project-status">4. Check project status</h3>
+<p>Once a reconstruction task is created. You could get its task state and other info within the Project type via the top level query: project.</p>
+<hr>
+<p>Last modified at Tue Feb 13 2018 20:30:19 GMT+0800 (HKT)</p>
 
                                 
                                 </section>
@@ -354,8 +394,12 @@
 
             
                 
+                <a href="api.html" class="navigation navigation-prev " aria-label="Previous page: GraphGL API">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="jssdk.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Javascript SDK">
+                
+                <a href="upload.html" class="navigation navigation-next " aria-label="Next page: 上传图像">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -366,7 +410,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"API 更新日志","level":"1.4.4","depth":2,"next":{"title":"Javascript SDK","level":"1.5","depth":1,"path":"jssdk.md","ref":"jssdk.md","articles":[{"title":"演示应用","level":"1.5.1","depth":2,"path":"jssdk-demo.md","ref":"jssdk-demo.md","articles":[]},{"title":"常见问题","level":"1.5.2","depth":2,"path":"jssdk-faq.md","ref":"jssdk-faq.md","articles":[]},{"title":"SDK 文档","level":"1.5.3","depth":2,"url":"ref://zh-hans/docs/user_docs/web/","ref":"ref://zh-hans/docs/user_docs/web/","articles":[]},{"title":"SDK 更新日志","level":"1.5.4","depth":2,"path":"jssdk-changelog.md","ref":"jssdk-changelog.md","articles":[]}]},"previous":{"title":"API 文档","level":"1.4.3","depth":2,"url":"https://api.altizure.cn/graphql","ref":"https://api.altizure.cn/graphql","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar","custom-favicon","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":{"cookieName":"docs_altizure","cookieDomain":"docs.altizure.com"},"token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure 开发团队","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure 开发平台文档","language":"zh-hans","links":{"home":"https://docs.altizure.com"},"gitbook":"*","description":"关注 Altizure 开发平台，释放实景三维的无穷魅力"},"file":{"path":"api-changelog.md","mtime":"2018-02-12T09:48:01.708Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-02-13T12:30:22.387Z"},"basePath":".","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"三维重建","level":"1.4.1","depth":2,"next":{"title":"上传图像","level":"1.4.2","depth":2,"path":"upload.md","ref":"upload.md","articles":[]},"previous":{"title":"GraphGL API","level":"1.4","depth":1,"path":"api.md","ref":"api.md","articles":[{"title":"三维重建","level":"1.4.1","depth":2,"path":"api-reconstruction.md","ref":"api-reconstruction.md","articles":[]},{"title":"上传图像","level":"1.4.2","depth":2,"path":"upload.md","ref":"upload.md","articles":[]},{"title":"API 文档","level":"1.4.3","depth":2,"url":"https://api.altizure.cn/graphql","ref":"https://api.altizure.cn/graphql","articles":[]},{"title":"API 更新日志","level":"1.4.4","depth":2,"path":"api-changelog.md","ref":"api-changelog.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar","custom-favicon","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":{"cookieName":"docs_altizure","cookieDomain":"docs.altizure.com"},"token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure 开发团队","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure 开发平台文档","language":"zh-hans","links":{"home":"https://docs.altizure.com"},"gitbook":"*","description":"关注 Altizure 开发平台，释放实景三维的无穷魅力"},"file":{"path":"api-reconstruction.md","mtime":"2018-02-13T12:30:19.726Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-02-13T12:30:22.387Z"},"basePath":".","book":{"language":"zh-hans"}});
         });
     </script>
 </div>

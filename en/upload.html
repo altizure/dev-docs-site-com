@@ -62,7 +62,7 @@
 
     
     
-    <link rel="prev" href="api.html" />
+    <link rel="prev" href="api-reconstruction.html" />
     
 
     </head>
@@ -144,7 +144,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.4.1" data-path="upload.html">
+        <li class="chapter " data-level="1.4.1" data-path="api-reconstruction.html">
+            
+                <a href="api-reconstruction.html">
+            
+                    
+                    3D Reconstruction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.2" data-path="upload.html">
             
                 <a href="upload.html">
             
@@ -157,7 +170,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" >
+        <li class="chapter " data-level="1.4.3" >
             
                 <a target="_blank" href="https://api.altizure.com/graphql">
             
@@ -170,7 +183,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="api-changelog.html">
+        <li class="chapter " data-level="1.4.4" data-path="api-changelog.html">
             
                 <a href="api-changelog.html">
             
@@ -330,7 +343,7 @@ For each image, call the mutation <code>uploadImageS3(pid, bucket, filename, typ
 If the total count of <code>Ready</code> matches the desired number, you may call mutation <code>startReconstructionWithError(id, options)</code> to start the reconstruction. Otherwise, you may consider re-uploading any outstanding image as indicated by the mutation <code>hasImage</code>.</p>
 <p>If you do not concern about a few number of missing images and want to start the reconstruction immediately once all the images are ready, you could call mutation <code>preStartReconstruction(id, options)</code>.</p>
 <h3 id="next">Next</h3>
-<p>After images are processed. you could start a <a href="api-reconstruction.md">reconstruction</a>.</p>
+<p>After images are processed. you could start a <a href="api-reconstruction.html">reconstruction</a>.</p>
 <h2 id="learn-more">Learn more</h2>
 <ul>
 <li>Learn more about <a href="https://www.alibabacloud.com/help/doc-detail/31953.htm?spm=a3c0i.o31952en.b99.284.7ab2aa72OYaf6D" target="_blank">STS</a></li>
@@ -365,7 +378,7 @@ If the total count of <code>Ready</code> matches the desired number, you may cal
 
             
                 
-                <a href="api.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: GraphGL API">
+                <a href="api-reconstruction.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 3D Reconstruction">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -377,7 +390,7 @@ If the total count of <code>Ready</code> matches the desired number, you may cal
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Images Upload","level":"1.4.1","depth":2,"next":{"title":"API Reference","level":"1.4.2","depth":2,"url":"https://api.altizure.com/graphql","ref":"https://api.altizure.com/graphql","articles":[]},"previous":{"title":"GraphGL API","level":"1.4","depth":1,"path":"api.md","ref":"api.md","articles":[{"title":"Images Upload","level":"1.4.1","depth":2,"path":"upload.md","ref":"upload.md","articles":[]},{"title":"API Reference","level":"1.4.2","depth":2,"url":"https://api.altizure.com/graphql","ref":"https://api.altizure.com/graphql","articles":[]},{"title":"API Changelog","level":"1.4.3","depth":2,"path":"api-changelog.md","ref":"api-changelog.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar","custom-favicon","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":{"cookieName":"docs_altizure","cookieDomain":"docs.altizure.com"},"token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure Open Platform Documentation","language":"en","links":{"home":"https://docs.altizure.com"},"gitbook":"*","description":"Altizure Development Platform. Unleash the power of realistic 3D models"},"file":{"path":"upload.md","mtime":"2018-02-13T05:30:17.240Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-02-13T11:30:21.618Z"},"basePath":".","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Images Upload","level":"1.4.2","depth":2,"next":{"title":"API Reference","level":"1.4.3","depth":2,"url":"https://api.altizure.com/graphql","ref":"https://api.altizure.com/graphql","articles":[]},"previous":{"title":"3D Reconstruction","level":"1.4.1","depth":2,"path":"api-reconstruction.md","ref":"api-reconstruction.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar","custom-favicon","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":{"cookieName":"docs_altizure","cookieDomain":"docs.altizure.com"},"token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure Open Platform Documentation","language":"en","links":{"home":"https://docs.altizure.com"},"gitbook":"*","description":"Altizure Development Platform. Unleash the power of realistic 3D models"},"file":{"path":"upload.md","mtime":"2018-02-13T05:30:17.240Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-02-13T12:30:22.387Z"},"basePath":".","book":{"language":"en"}});
         });
     </script>
 </div>
