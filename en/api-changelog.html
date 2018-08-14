@@ -318,6 +318,31 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="changelog-of-altizure-graphql-api">Changelog of Altizure GraphQL API</h1>
+<h3 id="190">1.9.0</h3>
+<p><strong>Release data:</strong>
+August. 10th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Added options: taskType in mutation: startReconstructionWithError, for starting different task types</li>
+<li>Automatically create thumbnail for every newly imported model</li>
+<li>Added new fields: assetStorage, visibility, coupon and modelPerProject etc in MembershipInfo in User object, to query current membership details</li>
+<li>Added query: support.membershipPlans for querying membership plans information</li>
+<li>Added new field: savePaymentMethod in User object, to indicate whether to store the payment method in Braintree or not</li>
+<li>Added new args: savePaymentMethod in mutation: updateMyProfile, to remove any existing payment methods stored</li>
+<li>Added query: Sandbox.collaborators relay connection</li>
+<li>Added super query: userTransactions</li>
+<li>Added new field: lastDoneGP in Project</li>
+<li>Added mutation: payMembershipBraintree to pay for membership plan via Braintree</li>
+</ul>
+<p><strong>Change:</strong></p>
+<ul>
+<li>Allowed renewing membership without extending existing period in super/sales api</li>
+<li>Added args: sortBy + search in query my.favouriteProjects and my.favouriteSandboxes</li>
+</ul>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Fixed setting the correct GP as last done GP in project upgrade transaction, instead of the current GP</li>
+</ul>
 <h3 id="186">1.8.6</h3>
 <p><strong>Release data:</strong>
 July. 27th, 2018</p>
@@ -637,7 +662,7 @@ Feb. 12th, 2018</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"API Changelog","level":"1.4.4","depth":2,"next":{"title":"Javascript SDK","level":"1.5","depth":1,"path":"jssdk.md","ref":"jssdk.md","articles":[{"title":"Demo","level":"1.5.1","depth":2,"path":"jssdk-demo.md","ref":"jssdk-demo.md","articles":[]},{"title":"FAQ","level":"1.5.2","depth":2,"path":"jssdk-faq.md","ref":"jssdk-faq.md","articles":[]},{"title":"SDK Reference","level":"1.5.3","depth":2,"url":"ref://en/docs/user_docs/web/index.html","ref":"ref://en/docs/user_docs/web/index.html","articles":[]},{"title":"SDK Changelog","level":"1.5.4","depth":2,"path":"jssdk-changelog.md","ref":"jssdk-changelog.md","articles":[]}]},"previous":{"title":"API Reference","level":"1.4.3","depth":2,"url":"https://api.altizure.com/graphql","ref":"https://api.altizure.com/graphql","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar","custom-favicon","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":{"cookieName":"docs_altizure","cookieDomain":"docs.altizure.com"},"token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure Open Platform Documentation","language":"en","links":{"home":"https://docs.altizure.com"},"gitbook":"*","description":"Altizure Development Platform. Unleash the power of realistic 3D models"},"file":{"path":"api-changelog.md","mtime":"2018-07-31T05:30:41.666Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-14T11:31:54.410Z"},"basePath":".","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"API Changelog","level":"1.4.4","depth":2,"next":{"title":"Javascript SDK","level":"1.5","depth":1,"path":"jssdk.md","ref":"jssdk.md","articles":[{"title":"Demo","level":"1.5.1","depth":2,"path":"jssdk-demo.md","ref":"jssdk-demo.md","articles":[]},{"title":"FAQ","level":"1.5.2","depth":2,"path":"jssdk-faq.md","ref":"jssdk-faq.md","articles":[]},{"title":"SDK Reference","level":"1.5.3","depth":2,"url":"ref://en/docs/user_docs/web/index.html","ref":"ref://en/docs/user_docs/web/index.html","articles":[]},{"title":"SDK Changelog","level":"1.5.4","depth":2,"path":"jssdk-changelog.md","ref":"jssdk-changelog.md","articles":[]}]},"previous":{"title":"API Reference","level":"1.4.3","depth":2,"url":"https://api.altizure.com/graphql","ref":"https://api.altizure.com/graphql","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar","custom-favicon","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":{"cookieName":"docs_altizure","cookieDomain":"docs.altizure.com"},"token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure Open Platform Documentation","language":"en","links":{"home":"https://docs.altizure.com"},"gitbook":"*","description":"Altizure Development Platform. Unleash the power of realistic 3D models"},"file":{"path":"api-changelog.md","mtime":"2018-08-14T11:32:41.602Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-14T11:32:47.396Z"},"basePath":".","book":{"language":"en"}});
         });
     </script>
 </div>
