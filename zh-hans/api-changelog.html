@@ -318,15 +318,329 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="altizure-graphql-api-&#x66F4;&#x65B0;&#x65E5;&#x5FD7;">Altizure GraphQL API &#x66F4;&#x65B0;&#x65E5;&#x5FD7;</h1>
-<h3 id="01x">0.1.x</h3>
+<h3 id="191">1.9.1</h3>
 <p><strong>Release data:</strong>
-2018&#x5E74;2&#x6708;12&#x65E5;</p>
+August. 17th, 2018</p>
 <p><strong>New features:</strong></p>
 <ul>
-<li>&#x5728; <code>/graphql</code> &#x63D0;&#x4F9B;&#x53EF;&#x6D4F;&#x89C8;&#x7684;&#x6587;&#x6863;&#x754C;&#x9762;&#x3002;</li>
+<li>Added support for paying coins or membership plan via Alipay web and mobile</li>
+<li>Added transaction types: AlipayBuyMembership</li>
+<li>Added super/sales query: refundAliPay</li>
+<li>Added super/sales query: allGQLEvents</li>
+</ul>
+<p><strong>Change:</strong></p>
+<ul>
+<li>Renamed mutation: createAliPayOrder to createAliPayCoinsOrder</li>
+</ul>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Fixed setting OAuth apps domains to not to include the protocol</li>
+</ul>
+<h3 id="190">1.9.0</h3>
+<p><strong>Release data:</strong>
+August. 10th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Added options: taskType in mutation: startReconstructionWithError, for starting different task types</li>
+<li>Automatically create thumbnail for every newly imported model</li>
+<li>Added new fields: assetStorage, visibility, coupon and modelPerProject etc in MembershipInfo in User object, to query current membership details</li>
+<li>Added query: support.membershipPlans for querying membership plans information</li>
+<li>Added new field: savePaymentMethod in User object, to indicate whether to store the payment method in Braintree or not</li>
+<li>Added new args: savePaymentMethod in mutation: updateMyProfile, to remove any existing payment methods stored</li>
+<li>Added query: Sandbox.collaborators relay connection</li>
+<li>Added super query: userTransactions</li>
+<li>Added new field: lastDoneGP in Project</li>
+<li>Added mutation: payMembershipBraintree to pay for membership plan via Braintree</li>
+</ul>
+<p><strong>Change:</strong></p>
+<ul>
+<li>Allowed renewing membership without extending existing period in super/sales api</li>
+<li>Added args: sortBy + search in query my.favouriteProjects and my.favouriteSandboxes</li>
+</ul>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Fixed setting the correct GP as last done GP in project upgrade transaction, instead of the current GP</li>
+</ul>
+<h3 id="186">1.8.6</h3>
+<p><strong>Release data:</strong>
+July. 27th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Supported custom notification description by offering tokenized description arguments <code>descArgs</code> in type: Notification</li>
+</ul>
+<p><strong>Change:</strong></p>
+<ul>
+<li>Allowed any user to set thumbnail of Sandbox</li>
+</ul>
+<h3 id="185">1.8.5</h3>
+<p><strong>Release data:</strong>
+July. 20th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Added query: My.allProjects, for querying native and imported model projects at the same time</li>
+<li>Added mutation: makeScreenshot to make a server side rendered screenshot with specific dimension and camera pose</li>
+<li>Added mutation: removeScreenshot to remove a screenshot of a project</li>
+</ul>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Fixed empty importedModelType error</li>
+</ul>
+<h3 id="184">1.8.4</h3>
+<p><strong>Release data:</strong>
+July. 13th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Added fields: animation + texture in type: SandboxEntity</li>
+<li>Added args: planet + background in SandboxMutation.create + update</li>
+</ul>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Fixed setting uploaded image as <code>Invalid</code> if client and server side checksums mismatch</li>
+</ul>
+<h3 id="183">1.8.3</h3>
+<p><strong>Release data:</strong>
+July. 6th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Added query: my.favouriteProjects / my.favouriteSandboxes for querying favourite projects with descending created time</li>
+<li>Added sorting options for sandbox apis</li>
+<li>Added super/sales query: userProjectList to output all the projects as CSV of a user</li>
+</ul>
+<p><strong>Change:</strong></p>
+<ul>
+<li>Removed deprecated query: version, User.thumb, getGeoIPInfo.suggestedBuckets</li>
+<li>Removed deprecated mutation: startReconstruction, upgradeProject,</li>
+</ul>
+<h3 id="182">1.8.2</h3>
+<p><strong>Release data:</strong>
+June. 22th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Added query: search.user(username) for searching the account unique username</li>
+</ul>
+<h3 id="181">1.8.1</h3>
+<p><strong>Release data:</strong>
+June. 15th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Supported changing the imported model type via mutation: setProjectProperties(importedModelType)</li>
+</ul>
+<p><strong>Change:</strong></p>
+<ul>
+<li>For query: project.cropMask, if crop mask does not exist, return a default mask instead of null</li>
+</ul>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Fixed issues of translating original image names to hashed image names in meta files if same image is uploaded multiple times</li>
+<li>Fixed changing project.importedState of imported-model-project to <code>Pending</code> immediately after a new upload URL is signed</li>
+</ul>
+<h3 id="180">1.8.0</h3>
+<p><strong>Release data:</strong>
+May. 25th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Supported Minio object storage server</li>
+<li>Added mutation: uploadImageMinio, to upload image to our private Minio server</li>
+<li>Added mutation: downgradeProject, for downgrading pro and non-done-once project to free project</li>
+</ul>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Fixed issue of pre-processing images indefinitely triggered from mobile apps, projects that have timeout images will be auto-started</li>
+</ul>
+<p><strong>Change:</strong></p>
+<ul>
+<li>Changed SandboxEntity&apos;s name from required to optional.</li>
+<li>Changed domains of cdn of various sandbox thumbs according to the region of api server</li>
+</ul>
+<h3 id="170">1.7.0</h3>
+<p><strong>Release data:</strong>
+May. 18th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Added mutation: transferProject for transferring ownership of projects to other user</li>
+<li>Added mutation: transferCoins for transferring coins to other user</li>
+<li>Added mutation: transferCoupon for transferring unused and non-expired timed coupons to other user</li>
+</ul>
+<p><strong>Breaking Change:</strong></p>
+<ul>
+<li>Allowed zero transaction for starting reconstruction / upgrading project.
+(Previously, if total value of timed coupon used is bigger than required,
+no transaction will be conducted. Now, a transaction of zero amount will be carried out
+with relevant information such as the coupons used in the transaction.)</li>
+</ul>
+<h3 id="162">1.6.2</h3>
+<p><strong>Release data:</strong>
+May. 11th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Added type: frame in sandbox&apos;s animation</li>
+</ul>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Fixed setting project as modified if an image is removed</li>
+<li>Fixed missing message of &apos;Authentication Error&apos; in various mutations</li>
+</ul>
+<h3 id="161">1.6.1</h3>
+<p><strong>Release data:</strong>
+May. 4th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Added transaction types: [
+  BraintreeBuyCoin,
+  AlipayBuyCoin,
+  WechatBuyCoin,
+  DepositCoinCoupon,
+  Reconstruction,
+  ProjUpgrade,
+  Refund,
+  SpecialCharge
+] in type: Transaction</li>
+<li>Supported custom transaction description by offering tokenized description arguments <code>descArgs</code> in type: Transaction</li>
+<li>Added ids of coupons used in relevant transaction</li>
+<li>Added sales mutation: refundProject and specialChargeUser</li>
+</ul>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Fixed issue of not refunding a pro project if it is stopped within 15 minutes</li>
+</ul>
+<h3 id="160">1.6.0</h3>
+<p><strong>Release data:</strong>
+April. 27th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Added mutation: sandbox.storyboard.{createStory + updateStory + removeStory + createStoryScene + removeStoryScene}</li>
+<li>Supported image file name that contains space(s), e.g. &apos;abc def ghi.JPG&apos; in metafile (despite space is being used as delimiter)</li>
 </ul>
 <p><strong>Improvements:</strong></p>
+<ul>
+<li>Reduced the latency of all the query (especially in China) with geo-distributed replica set</li>
+</ul>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Fixed typo of metafile filename to accept <code>group.txt</code> instead of <code>groups.txt</code></li>
+</ul>
+<p><strong>Breaking Change:</strong></p>
+<ul>
+<li>All images that are not in state: <code>Ready(Strong)</code> or <code>Invalid</code> will be forcefully switched to <code>Invalid</code>
+if their last <code>modifiedDate</code> is older than 65 minutes</li>
+</ul>
+<h3 id="151">1.5.1</h3>
+<p><strong>Release data:</strong>
+April. 20th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Supported markdown format in sales query: sendEmail</li>
+<li>Added mutation: setSandboxThumb for setting progressive sandbox thumbnails</li>
+<li>Added sales mutation: addUserNote and removeUserNote</li>
+<li>Added new buckets: Beijing, Virginia and London in enum: BucketS3Model, used in mutation: uploadModelS3</li>
+<li>Added new query: getGeoIPInfo.nearestModelBuckets to get the nearest buckets for uploading obj model</li>
+</ul>
+<h3 id="150">1.5.0</h3>
+<p><strong>Release data:</strong>
+April. 13th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Added field: importedModelType in Project, to indicate the imported model type</li>
+<li>Added field: developer.level in User, to store the base level of subsequent apps</li>
+<li>Allowed sales api to get/set developer base level and individual apps level</li>
+<li>Added sales api to send email</li>
+</ul>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Fixed setting default materials for imported models</li>
+<li>Allowed sales to query private coupon fields</li>
+<li>Enforced expiring developer status and all of his apps</li>
+<li>Properly handled the case when project image is removed when it is still in excited state</li>
+</ul>
+<p><strong>Breaking Change:</strong></p>
+<ul>
+<li>Changed the definition of User.freeGPQuota to {free global quota + staff picked bonus + membership quota}, instead of just {free global quota + staff picked bonus}</li>
+<li>project.allMaterials were set as public, instead of private</li>
+</ul>
+<h3 id="140">1.4.0</h3>
+<p><strong>Release data:</strong>
+April. 6th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Added 2 new filters: ActiveUsed + ActiveUnused in FILTER_COUPON_TIME_STATE, which is used in query.my.coupons</li>
+<li>Added query.sandbox.sandbox + query.sandbox.allSandboxes + query.my.sandboxes</li>
+<li>Added mutation.sandbox</li>
+<li>Supported importing CAD, photogrammetric and point-cloud models</li>
+</ul>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Fixed status 500 server error if no user token is provided in any query</li>
+<li>Fixed handling pre-starting non-existing project</li>
+<li>Fixed unhandled promise rejection error when registering new user with empty fields</li>
+</ul>
+<p><strong>Breaking Change:</strong></p>
+<ul>
+<li>Mutation: createProject accepts an additional arg: modelType for indicating the imported model type.</li>
+</ul>
+<h3 id="131">1.3.1</h3>
+<p><strong>Release data:</strong>
+March. 29th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Added resendVerificationEmail in query.support</li>
+<li>Added args: type in query.my.transactions to filter credit or debit transactions</li>
+<li>Added new field: MembershipInfo in User object</li>
+</ul>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Fixed issues of translating original image names to hashed image names in meta files</li>
+<li>Fixed issues of user login via OAuth</li>
+</ul>
+<h3 id="130">1.3.0</h3>
+<p><strong>Release data:</strong>
+March. 23th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Supported accepting multiple time based coupons in a single operation</li>
+<li>Added sales API</li>
+</ul>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Fixed redeem coupon link in http server mode</li>
+<li>Fixed ProjectImage&apos;s &apos;resized&apos; ValidatorError when calling mutation: hasImage</li>
+<li>Fixed mis-judging &apos;Invalid&apos; image as &apos;ReadyStrong&apos;</li>
+</ul>
+<p><strong>Breaking Change:</strong></p>
+<ul>
+<li>Mutation: upgradeProjectWithError, startReconstructionWithError and preStartReconstruction accept a list of coupon ids, instead of a single coupon id.</li>
+</ul>
+<h3 id="120">1.2.0</h3>
+<p><strong>Release data:</strong>
+March. 16th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>User registration: send an email verification upon user registration</li>
+<li>Added query: project.allMaterials for getting all materials</li>
+<li>Added mutation: addProjectMaterial + updateProjectMaterial + removeProjectMaterial</li>
+</ul>
+<p><strong>Breaking Change:</strong></p>
+<ul>
+<li>Mutation: PreStartProject will start the reconstruction task if all the images are in either &apos;Ready&apos; or &apos;Invalid&apos; state.
+So PreStartProject should be called after all images are uploaded.
+Previously, it is supposed to be called before all images are &apos;Ready&apos; or &apos;Invalid&apos;.</li>
+</ul>
+<h3 id="110">1.1.0</h3>
+<p><strong>Release data:</strong>
+Feb. 12th, 2018</p>
+<p><strong>New features:</strong></p>
+<ul>
+<li>Make endpoint: <code>/graphql</code> browsable without app key</li>
+<li>Added query: support.projectDoctor for diagnostic information</li>
+<li>Added super query: approveDeveloper</li>
+</ul>
+<p><strong>Improvements:</strong></p>
+<ul>
+<li>Used provider pattern for selecting cloud providers upload services</li>
+</ul>
 <p><strong>Bug fixes:</strong></p>
+<ul>
+<li>Fixed query: suggestedBuckets return values</li>
+</ul>
 
                                 
                                 </section>
@@ -366,7 +680,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"API 更新日志","level":"1.4.4","depth":2,"next":{"title":"JavaScript SDK","level":"1.5","depth":1,"path":"jssdk.md","ref":"jssdk.md","articles":[{"title":"演示应用","level":"1.5.1","depth":2,"path":"jssdk-demo.md","ref":"jssdk-demo.md","articles":[]},{"title":"常见问题","level":"1.5.2","depth":2,"path":"jssdk-faq.md","ref":"jssdk-faq.md","articles":[]},{"title":"SDK 文档","level":"1.5.3","depth":2,"url":"ref://zh-hans/docs/user_docs/web/","ref":"ref://zh-hans/docs/user_docs/web/","articles":[]},{"title":"SDK 更新日志","level":"1.5.4","depth":2,"path":"jssdk-changelog.md","ref":"jssdk-changelog.md","articles":[]}]},"previous":{"title":"API 文档","level":"1.4.3","depth":2,"url":"https://api.altizure.cn/graphql","ref":"https://api.altizure.cn/graphql","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar","custom-favicon","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":{"cookieName":"docs_altizure","cookieDomain":"docs.altizure.com"},"token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure 开发团队","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure 开发平台文档","language":"zh-hans","links":{"home":"https://docs.altizure.com"},"gitbook":"*","description":"关注 Altizure 开发平台，释放实景三维的无穷魅力"},"file":{"path":"api-changelog.md","mtime":"2018-08-14T11:32:41.603Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-15T08:30:36.680Z"},"basePath":".","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"API 更新日志","level":"1.4.4","depth":2,"next":{"title":"JavaScript SDK","level":"1.5","depth":1,"path":"jssdk.md","ref":"jssdk.md","articles":[{"title":"演示应用","level":"1.5.1","depth":2,"path":"jssdk-demo.md","ref":"jssdk-demo.md","articles":[]},{"title":"常见问题","level":"1.5.2","depth":2,"path":"jssdk-faq.md","ref":"jssdk-faq.md","articles":[]},{"title":"SDK 文档","level":"1.5.3","depth":2,"url":"ref://zh-hans/docs/user_docs/web/","ref":"ref://zh-hans/docs/user_docs/web/","articles":[]},{"title":"SDK 更新日志","level":"1.5.4","depth":2,"path":"jssdk-changelog.md","ref":"jssdk-changelog.md","articles":[]}]},"previous":{"title":"API 文档","level":"1.4.3","depth":2,"url":"https://api.altizure.cn/graphql","ref":"https://api.altizure.cn/graphql","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar","custom-favicon","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":{"cookieName":"docs_altizure","cookieDomain":"docs.altizure.com"},"token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure 开发团队","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure 开发平台文档","language":"zh-hans","links":{"home":"https://docs.altizure.com"},"gitbook":"*","description":"关注 Altizure 开发平台，释放实景三维的无穷魅力"},"file":{"path":"api-changelog.md","mtime":"2018-08-17T11:30:41.729Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-17T11:30:55.399Z"},"basePath":".","book":{"language":"zh-hans"}});
         });
     </script>
 </div>
