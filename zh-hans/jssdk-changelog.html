@@ -330,6 +330,312 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="altizure-sandbox-3d-sdk-&#x66F4;&#x65B0;&#x65E5;&#x5FD7;">Altizure Sandbox 3D SDK &#x66F4;&#x65B0;&#x65E5;&#x5FD7;</h1>
+<h3 id="291">2.9.1</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;4&#x6708;17&#x65E5;</p>
+<p><strong>&#x65B0;&#x529F;&#x80FD;:</strong></p>
+<ul>
+<li>&#x591A;&#x53EF;&#x89C6;&#x57DF;&#x5206;&#x6790;<code>&#x8303;&#x4F8B; 5.12</code>, &#x591A;&#x4E2A;&#x89C6;&#x89D2;&#x4E0B;&#x7684;&#x53EF;&#x89C6;&#x533A;&#x57DF;&#x5206;&#x6790;&#x3002;</li>
+<li>&#x589E;&#x52A0;&#x7167;&#x7247;&#x878D;&#x5408;<code>&#x8303;&#x4F8B; 5.13</code>&#xFF0C;&#x53EF;&#x5C06;&#x7528;&#x4E8E;&#x751F;&#x6210;&#x4E09;&#x7EF4;&#x6A21;&#x578B;&#x7684;&#x7167;&#x7247;&#x548C;&#x4E09;&#x7EF4;&#x6A21;&#x578B;&#x878D;&#x5408;&#x663E;&#x793A;&#x3002;&#x4E09;&#x7EF4;&#x6A21;&#x578B;&#x9ED8;&#x8BA4;&#x4E0D;&#x5177;&#x5907;&#x8BE5;&#x529F;&#x80FD;&#xFF0C;&#x5982;&#x9700;&#x5F00;&#x901A;&#x8BE5;&#x529F;&#x80FD;&#xFF0C;&#x8BF7;&#x4E0E;<code>Altizure</code>&#x5546;&#x52A1;&#x90E8;&#x95E8;&#x8054;&#x7CFB;&#x3002;</li>
+</ul>
+<p><strong>&#x6539;&#x8FDB;:</strong></p>
+<ul>
+<li>&#x66F4;&#x65B0;<code>&#x8303;&#x4F8B;2.6</code> &#x6587;&#x5B57;&#x9876;&#x90E8;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x88AB;&#x622A;&#x53D6;&#x4E00;&#x5C0F;&#x6BB5;&#xFF0C;&#x4F7F;&#x7528;<code>margin</code>&#x907F;&#x514D;&#x8BE5;&#x7455;&#x75B5;&#x3002;</li>
+<li>&#x5728;&#x88C1;&#x526A;&#x548C;&#x6C34;&#x9762;&#x529F;&#x80FD;&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;<code>crop(boundary, isInner = false)</code>&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E0D;&#x4F1A;&#x5BF9;boundary&#x5185;&#x90E8;&#x9020;&#x6210;&#x6539;&#x53D8;&#x3002;</li>
+</ul>
+<h3 id="2813">2.8.13</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;4&#x6708;12&#x65E5;</p>
+<p><strong>&#x7F3A;&#x9677;&#x4FEE;&#x590D;:</strong></p>
+<ul>
+<li>&#x4FEE;&#x590D;&#x6539;&#x53D8;&#x671D;&#x5411;&#x5BF9; focus() &#x9020;&#x6210;&#x7684;&#x95EE;&#x9898;</li>
+<li>&#x4FEE;&#x590D; importPhotos() &#x53EF;&#x80FD;&#x9020;&#x6210;&#x7684;&#x5D29;&#x6E83;</li>
+<li>&#x4FEE;&#x590D;&#x521D;&#x59CB;&#x89C6;&#x89D2;&#x5782;&#x76F4;&#x4E8E;&#x5730;&#x9762;&#x53EF;&#x80FD;&#x9020;&#x6210;&#x7684;&#x521D;&#x59CB;&#x89C6;&#x89D2;&#x65E0;&#x6CD5;&#x88AB;&#x6B63;&#x786E;&#x6062;&#x590D;</li>
+</ul>
+<h3 id="288">2.8.8</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;4&#x6708;8&#x65E5;</p>
+<p><strong>&#x65B0;&#x529F;&#x80FD;:</strong></p>
+<ul>
+<li>&#x80CC;&#x666F;&#x7684; <code>opacity</code>, <code>color</code>, <code>image</code>, &#x589E;&#x52A0;&#x4E86;&#x5B9E;&#x65F6;&#x4FEE;&#x6539;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x66F4;&#x65B0;&#x4E86;&#x8303;&#x4F8B;1.5&#xFF0C;&#x6F14;&#x793A;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x63A5;&#x53E3;.</li>
+</ul>
+<h3 id="287">2.8.7</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;4&#x6708;3&#x65E5;</p>
+<p><strong>&#x65B0;&#x529F;&#x80FD;:</strong></p>
+<ul>
+<li>&#x6240;&#x6709; <code>PlaneMarker</code> &#x7C7B;&#x7684; non-sprite &#x72B6;&#x6001;&#x589E;&#x52A0;&#x4E86;&#x5BF9; <code>fixedSize</code> &#x7684;&#x652F;&#x6301;&#x3002;</li>
+</ul>
+<p><strong>&#x6539;&#x8FDB;:</strong></p>
+<ul>
+<li>&#x4F7F;&#x7528;localStorage&#x7F13;&#x5B58;&#x5E38;&#x7528;&#x7684;graphql&#x8BF7;&#x6C42;&#xFF0C;&#x4EE5;&#x51CF;&#x5C11;&#x52A0;&#x8F7D;&#x65F6;&#x7684;&#x7B49;&#x5F85;&#x65F6;&#x95F4;&#x3002;</li>
+</ul>
+<p><strong>&#x7F3A;&#x9677;&#x4FEE;&#x590D;:</strong></p>
+<ul>
+<li>&#x5408;&#x5E76;&#x5BF9;ip&#x4F4D;&#x7F6E;&#x7684;&#x91CD;&#x590D;&#x67E5;&#x8BE2;&#x3002;</li>
+</ul>
+<h3 id="285">2.8.5</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;3&#x6708;29&#x65E5;</p>
+<p><strong>&#x65B0;&#x529F;&#x80FD;:</strong></p>
+<ul>
+<li>&#x589E;&#x52A0;&#x7BC4;&#x4F8B; <code>Project/6.8 Water Edit</code>&#x591A;&#x7247;&#x6C34;&#x9762;&#x7F16;&#x8F91;&#x3002;</li>
+</ul>
+<p><strong>&#x6539;&#x8FDB;:</strong></p>
+<ul>
+<li>&#x91CD;&#x53E0;&#x7684;&#x591A;&#x7247;&#x53EF;&#x89C6;&#x57DF;&#xFF0C;&#x53EF;&#x89C6;&#x89D2;&#x5EA6;&#x8D8A;&#x591A;&#xFF0C;&#x7EFF;&#x8272;&#x4F1A;&#x8D8A;&#x6DF1;&#x3002;</li>
+</ul>
+<p><strong>&#x7F3A;&#x9677;&#x4FEE;&#x590D;:</strong></p>
+<ul>
+<li><code>sandbox.destruct()</code> &#x4F1A;&#x5BFC;&#x81F4;&#x5176;&#x4ED6;&#x7684; <code>sandbox</code> &#x4E2D; <code>ObjMarker</code>&#x7684;control&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x3002;</li>
+</ul>
+<h3 id="283">2.8.3</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;3&#x6708;25&#x65E5;</p>
+<p><strong>&#x65B0;&#x529F;&#x80FD;:</strong></p>
+<ul>
+<li>&#x589E;&#x52A0;&#x7BC4;&#x4F8B; <code>6.10 Interactive Distance Measure</code> <code>Analysis</code>&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x53EF;&#x4EA4;&#x4E92;&#x8DDD;&#x79BB;&#x91CF;&#x6D4B;&#x5DE5;&#x5177;&#x3002;</li>
+<li>&#x589E;&#x52A0;&#x5B9E;&#x65F6;&#x89C6;&#x9891;&#x6D41;&#x7684;&#x5B9E;&#x666F;&#x878D;&#x529F;&#x80FD;&#xFF08;&#x5305;&#x542B;&#x786C;&#x4EF6;&#x65B9;&#x6848;&#xFF0C;&#x8BF7;&#x54A8;&#x8BE2;Altizure&#x5546;&#x52A1;&#x90E8;&#x95E8;&#xFF09;</li>
+</ul>
+<p><strong>&#x6539;&#x8FDB;:</strong></p>
+<ul>
+<li>&#x5728; example &#x53F3;&#x4E0B;&#x89D2;&#x6DFB;&#x52A0;&#x94FE;&#x63A5;&#x5230; github &#x4EE3;&#x7801;&#x7684;&#x6309;&#x94AE;&#x3002;</li>
+<li>&#x4F18;&#x5316;&#x4E86;LOD&#x7684;&#x52A0;&#x8F7D;&#x7B56;&#x7565;&#xFF0C;&#x964D;&#x4F4E;CPU&#x6D88;&#x8017;</li>
+</ul>
+<p><strong>&#x7F3A;&#x9677;&#x4FEE;&#x590D;:</strong></p>
+<ul>
+<li>IE11 &#x52A0;&#x8F7D;&#x5B9E;&#x666F;&#x6A21;&#x578B;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;</li>
+</ul>
+<h3 id="273">2.7.3</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;3&#x6708;12&#x65E5;</p>
+<p><strong>&#x65B0;&#x529F;&#x80FD;:</strong></p>
+<ul>
+<li><code>altizure-plugin-geosystem</code> &#x652F;&#x6301;&#x5BF9;<code>ObjMarker</code> &#x5EFA;&#x7ACB;&#x5C40;&#x90E8;&#x5750;&#x6807;&#x7CFB;&#x3002;</li>
+<li>&#x589E;&#x52A0;&#x7BC4;&#x4F8B; <code>5.11 Camera Move Path</code> &#x76F8;&#x673A;&#x79FB;&#x52A8;&#x8DEF;&#x5F84;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x6307;&#x5B9A;&#x8DEF;&#x5F84;&#x4E0A;&#x5300;&#x901F;&#x79FB;&#x52A8;&#x3002;</li>
+<li>&#x589E;&#x52A0;&#x7BC4;&#x4F8B; <code>7.5 Plugin Shapefile</code> &#x5BFC;&#x5165; <code>shapefile</code> &#x529F;&#x80FD;&#x3002;<a href="https://altizure.github.io/sdk.examples/7-5-plugin-shapefile/index.html" target="_blank">&#x8303;&#x4F8B; 7.5</a></li>
+<li>&#x589E;&#x52A0;&#x7BC4;&#x4F8B; <code>6.9 Floor Distinguish</code> &#x5EFA;&#x7B51;&#x697C;&#x5C42;&#x5355;&#x4F53;&#x5316;&#x793A;&#x4F8B;&#x3002;<a href="https://altizure.github.io/sdk.examples/6-9-floor-distinguish/index.html" target="_blank">&#x8303;&#x4F8B; 6.9</a></li>
+</ul>
+<h3 id="272">2.7.2</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;3&#x6708;10&#x65E5;</p>
+<p><strong>&#x65B0;&#x529F;&#x80FD;:</strong></p>
+<ul>
+<li>&#x589E;&#x52A0; <code>DemMarker</code> &#x652F;&#x6301;&#x5BFC;&#x5165;&#x7B26;&#x5408;<code>wmts</code>&#x6807;&#x51C6;&#x7684;&#x5730;&#x5F62;&#x6570;&#x636E;&#xFF08;&#x9AD8;&#x7A0B;&#x56FE;&#x53CA;&#x6B63;&#x5C04;&#x56FE;&#xFF09;&#x3002;</li>
+</ul>
+<h3 id="261">2.6.1</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;3&#x6708;7&#x65E5;</p>
+<p><strong>&#x65B0;&#x529F;&#x80FD;:</strong></p>
+<ul>
+<li>&#x88C1;&#x526A;&#x4E0E;&#x89C6;&#x9891;&#x878D;&#x5408;&#x529F;&#x80FD;&#x53EF;&#x4EE5;&#x5171;&#x5B58;&#x3002;&#x53C2;&#x8003;&#x7BC4;&#x4F8B;7.3&#x3002;</li>
+</ul>
+<h3 id="2510">2.5.10</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;3&#x6708;4&#x65E5;</p>
+<p><strong>&#x7F3A;&#x9677;&#x4FEE;&#x590D;:</strong></p>
+<ul>
+<li>&#x4FEE;&#x590D;&#x90E8;&#x5206; <code>PlaneMarker</code> &#x53CA;&#x5176;&#x7EE7;&#x627F;&#x7C7B;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x95EA;&#x70C1;&#x7684;&#x95EE;&#x9898;&#x3002;</li>
+<li>&#x4FEE;&#x590D;&#x90E8;&#x5206; <code>AltizureProjectMarker</code> &#x7684;&#x4F4D;&#x7F6E;&#x4E0D;&#x51C6;&#x786E;&#xFF0C;&#x6216;&#x8005; fence &#x4F4D;&#x7F6E;&#x4E0D;&#x51C6;&#x786E;&#x3002;</li>
+</ul>
+<p><strong>&#x65B0;&#x529F;&#x80FD;:</strong></p>
+<ul>
+<li>&#x589E;&#x52A0; 6.8 &#x521B;&#x5EFA;/&#x4FEE;&#x6539;&#x6C34;&#x9762;&#x8303;&#x4F8B;&#x3002;</li>
+</ul>
+<h3 id="256">2.5.6</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;2&#x6708;22&#x65E5;</p>
+<p><strong>&#x7F3A;&#x9677;&#x4FEE;&#x590D;:</strong></p>
+<ul>
+<li>&#x4FEE;&#x590D;&#x90E8;&#x5206; <code>AltizureProjectMarker</code> &#x7684; <code>focus</code> &#x89C6;&#x89D2;&#x548C;&#x7F51;&#x7AD9;&#x8BBE;&#x7F6E;&#x7684;&#x5C01;&#x9762;&#x56FE;&#x6848;&#x4E0D;&#x4E00;&#x81F4;&#x3002;</li>
+<li>&#x4FEE;&#x590D;&#x90E8;&#x5206; <code>AltizureProjectMarker</code> &#x7684; `&#x5305;&#x56F4;&#x76D2;&#x4E0E;&#x6A21;&#x578B;&#x4E0D;&#x4E00;&#x81F4;&#x3002;</li>
+</ul>
+<p><strong>&#x65B0;&#x529F;&#x80FD;:</strong></p>
+<ul>
+<li>&#x589E;&#x52A0;&#x8303;&#x4F8B; 2.15&#xFF1A; LOD &#x70B9;&#x4E91;&#x9879;&#x76EE;&#x663E;&#x793A;&#x3002;</li>
+<li>&#x589E;&#x52A0;&#x70B9;&#x4E91; <code>pointSize</code> &#x63A5;&#x53E3;&#xFF0C;&#x8C03;&#x6574;&#x70B9;&#x7684;&#x5927;&#x5C0F;&#x3002;</li>
+<li>&#x589E;&#x52A0; 10.5 Tool-tip &#x8303;&#x4F8B;&#x3002;</li>
+</ul>
+<p><strong>&#x6539;&#x8FDB;:</strong></p>
+<ul>
+<li>&#x6839;&#x636E;&#x529F;&#x80FD;&#xFF0C;&#x91CD;&#x7EC4;&#x8303;&#x4F8B;&#x5217;&#x8868;&#x3002;</li>
+</ul>
+<h3 id="2416">2.4.16</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;1&#x6708;24&#x65E5;</p>
+<p><strong>&#x6539;&#x8FDB;:</strong></p>
+<ul>
+<li><code>PlaneMarker</code> &#xFF08;&#x4EE5;&#x53CA;&#x5176;&#x7EE7;&#x627F;&#x7C7B;&#x5305;&#x62EC; <code>CanvasTagMarker</code>, <code>Tagmarker</code> &#x7B49;&#xFF09; &#x589E;&#x52A0;&#x4E86; <code>color</code> &#x63A5;&#x53E3;&#xFF0C;&#x7528;&#x6765;&#x6539;&#x53D8;&#x56FE;&#x7247;&#x5E95;&#x8272;&#xFF1B; <code>pinColor</code> &#x63A5;&#x53E3;&#x6539;&#x53D8;&#x56FE;&#x7247;&#x4E0B;&#x65B9;&#x6307;&#x9488;&#x989C;&#x8272;&#x3002;</li>
+</ul>
+<h3 id="2414">2.4.14</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;1&#x6708;24&#x65E5;</p>
+<p><strong>&#x7F3A;&#x9677;&#x4FEE;&#x590D;:</strong></p>
+<ul>
+<li>&#x4FEE;&#x590D;&#x5305;&#x542B;sandbox&#x7684; <code>div</code> &#x5728; <code>scroll</code> &#x4E4B;&#x540E;&#xFF0C;&#x53EA;&#x6709;&#x5C40;&#x90E8;&#x5904;&#x4E8E;window&#x4E2D;&#xFF0C;<code>Marker</code>&#x9F20;&#x6807;&#x4EA4;&#x4E92;&#x4E8B;&#x4EF6;&#x4F4D;&#x7F6E;&#x4E0D;&#x51C6;&#x786E;&#x3002;</li>
+</ul>
+<h3 id="2413">2.4.13</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;1&#x6708;24&#x65E5;</p>
+<p><strong>&#x7F3A;&#x9677;&#x4FEE;&#x590D;:</strong></p>
+<ul>
+<li>&#x4FEE;&#x590D; <code>Marker::euler::y</code> &#x5728; <code>-PI</code> &#x548C; <code>PI</code> &#x9644;&#x8FD1;&#x6709;&#x6296;&#x52A8;&#xFF0C;&#x53D6;&#x503C;&#x53CA;&#x8BBE;&#x5B9A;&#x503C;&#x4E0D;&#x6B63;&#x5E38;&#x3002;</li>
+</ul>
+<h3 id="2412">2.4.12</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;1&#x6708;23&#x65E5;</p>
+<p><strong>&#x7F3A;&#x9677;&#x4FEE;&#x590D;:</strong></p>
+<ul>
+<li><code>ObjMarker</code> &#x9ED8;&#x8BA4; <code>diffuse</code> &#x989C;&#x8272;&#x7531;&#x84DD;&#x8272;&#x8C03;&#x4E3A;&#x767D;&#x8272;&#x3002;&#x5F53; <code>map_Kd</code> &#x4E0E; <code>Kd</code> &#x540C;&#x65F6;&#x5B58;&#x5728;&#xFF0C;<code>Kd</code> &#x4E0D;&#x751F;&#x6548;&#x3002;</li>
+<li>VisibilityMaterial &#x5728;&#x4F7F;&#x7528; Material Array &#x7684;&#x6A21;&#x578B;&#x4E2D;&#x663E;&#x793A;&#x4E0D;&#x6B63;&#x5E38;&#x3002;</li>
+</ul>
+<h3 id="2411">2.4.11</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;1&#x6708;9&#x65E5;</p>
+<p><strong>&#x7F3A;&#x9677;&#x4FEE;&#x590D;:</strong></p>
+<ul>
+<li>&#x90E8;&#x5206;&#x5BFC;&#x5165;&#x6A21;&#x578B;&#x7EB9;&#x7406;&#x9519;&#x8BEF;&#x3002;</li>
+<li>&#x5207;&#x6362;&#x9875;&#x9762;&#x540E;&#x7C92;&#x5B50;&#x6548;&#x679C;&#x663E;&#x793A;&#x4E0D;&#x6B63;&#x5E38;&#x3002;</li>
+</ul>
+<p><strong>&#x65B0;&#x529F;&#x80FD;:</strong></p>
+<ul>
+<li><a href="https://altizure.github.io/sdk.examples/2-14-add-tubeline/" target="_blank">&#x7BC4;&#x4F8B;2.14</a>&#xFF0C;<code>PolyTubeLineMarker</code>&#xFF0C;&#x7C7B;&#x4F3C; fence&#xFF0C;&#x53EF;&#x81EA;&#x5B9A;&#x4E49;&#x7EB9;&#x7406;&#x3001;&#x52A8;&#x753B;&#x7B49;&#x98CE;&#x683C;&#x3002;</li>
+</ul>
+<h3 id="2410">2.4.10</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2019&#x5E74;1&#x6708;3&#x65E5;</p>
+<p><strong>&#x7F3A;&#x9677;&#x4FEE;&#x590D;:</strong></p>
+<ul>
+<li>&#x52A0;&#x8F7D;&#x9879;&#x76EE;&#x65F6;&#x5730;&#x7403;&#x4EA4;&#x4E92;&#x53EF;&#x80FD;&#x7A81;&#x7136;&#x8DF3;&#x5F88;&#x8FDC;&#x3002;</li>
+</ul>
+<hr>
+<h3 id="249">2.4.9</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2018&#x5E74;12&#x6708;28&#x65E5;</p>
+<p><strong>&#x6539;&#x8FDB;:</strong></p>
+<ul>
+<li><code>phong</code>&#x6E32;&#x67D3;&#x589E;&#x52A0;&#x4E86;&#x5BF9;&#x5BFC;&#x5165;&#x6A21;&#x578B;&#x7684;&#x900F;&#x660E;&#x6750;&#x8D28;&#x7684;&#x652F;&#x6301;&#x3002;</li>
+</ul>
+<h3 id="247">2.4.7</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2018&#x5E74;12&#x6708;24&#x65E5;</p>
+<p><strong>&#x6539;&#x8FDB;:</strong></p>
+<ul>
+<li>&#x589E;&#x52A0;&#x4E86;&#x5BF9;&#x5BFC;&#x5165;&#x6A21;&#x578B;&#x7684; <code>emissive map</code>, <code>specular map</code> &#x7684;&#x652F;&#x6301;&#x3002;</li>
+<li>&#x51CF;&#x5C0F;56KB<code>sdk</code>&#x5197;&#x4F59;&#x3002;</li>
+</ul>
+<hr>
+<h3 id="246">2.4.6</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2018&#x5E74;12&#x6708;21&#x65E5;</p>
+<p><strong>&#x6539;&#x8FDB;:</strong></p>
+<ul>
+<li>&#x4F18;&#x5316;CPU&#x4F7F;&#x7528;&#xFF0C;altizure binary &#x89E3;&#x538B;&#x5168;&#x90E8;&#x8F6C;&#x79FB;&#x81F3;&#x5B50;&#x7EBF;&#x7A0B;&#x3002;</li>
+<li><code>PlanarPatchMarker</code> &#x4E24;&#x9762;&#x90FD;&#x53EF;&#x63A5;&#x53D7;&#x4EA4;&#x4E92;&#x4E8B;&#x4EF6;&#x3002;</li>
+<li>&#x589E;&#x52A0;&#x4E86;&#x5BF9;&#x5BFC;&#x5165;&#x6A21;&#x578B;&#x7684;&#x900F;&#x660E;&#x6750;&#x8D28;&#x7684;&#x652F;&#x6301;&#x3002;</li>
+</ul>
+<p><strong>&#x7F3A;&#x9677;&#x4FEE;&#x590D;:</strong></p>
+<ul>
+<li>&#x6E05;&#x7406;&#x90E8;&#x5206;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x3002;</li>
+<li>NASA &#x6708;&#x7403;&#x536B;&#x661F;&#x56FE;&#x8D44;&#x6E90;&#x5931;&#x6548;&#xFF0C;&#x6682;&#x65F6;&#x53D6;&#x6D88;&#x7BC4;&#x4F8B;1.4&#x3002;&#x53EF;&#x4F7F;&#x7528;&#x81EA;&#x6709;&#x6708;&#x7403;&#x8D44;&#x6E90;&#x5B9E;&#x73B0;&#x76F8;&#x540C;&#x6548;&#x679C;&#xFF0C;&#x53C2;&#x8003;&#x7BC4;&#x4F8B;1.7&#x3002;</li>
+</ul>
+<h3 id="245">2.4.5</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2018&#x5E74;12&#x6708;10&#x65E5;</p>
+<p><strong>&#x7F3A;&#x9677;&#x4FEE;&#x590D;:</strong></p>
+<ul>
+<li><code>CanvasTagMarker</code> lost interaction after the sandbox is destructed and re-created.</li>
+</ul>
+<h3 id="243">2.4.3</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2018&#x5E74;12&#x6708;10&#x65E5;</p>
+<p><strong>&#x6539;&#x8FDB;:</strong></p>
+<ul>
+<li>&#x518D;&#x6B21;&#x6539;&#x8FDB;&#x7531;&#x4E8E;bbox&#x5F15;&#x8D77;&#x7684;&#x62C9;&#x8FD1;&#x89C6;&#x89D2;&#x540E;&#xFF0C;&#x6A21;&#x578B;&#x53D8;&#x7CCA;&#x7684;&#x95EE;&#x9898;&#x3002;</li>
+</ul>
+<h3 id="242">2.4.2</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2018&#x5E74;12&#x6708;7&#x65E5;</p>
+<p><strong>&#x6539;&#x8FDB;:</strong></p>
+<ul>
+<li>&#x52A0;&#x901F;&#x7B2C;&#x4E00;&#x6B21; Altizure Project Marker &#x52A0;&#x8F7D;&#x65F6;&#x95F4; 1&#xFF5E;2.5&#x79D2;&#x3002;</li>
+</ul>
+<h3 id="241">2.4.1</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2018&#x5E74;11&#x6708;30&#x65E5;</p>
+<p><strong>&#x6539;&#x8FDB;:</strong></p>
+<ul>
+<li>&#x907F;&#x514D; <code>CanvasTagMarker</code> &#x7684;&#x56FE;&#x5F62;&#x88AB;&#x62C9;&#x4F38;&#x3002;</li>
+</ul>
+<p><strong>&#x65B0;&#x529F;&#x80FD;:</strong></p>
+<ul>
+<li><p>&#x7BC4;&#x4F8B; 1.6, &#x8BBE;&#x7F6E;&#x521D;&#x59CB;&#x5316;&#x6A21;&#x578B;&#x8D28;&#x91CF;&#xFF0C;&#x4EE5;&#x8282;&#x7701;&#x786C;&#x4EF6;&#x8D44;&#x6E90;&#x3002;&#x53EA;&#x80FD;&#x5728;&#x521D;&#x59CB;&#x5316; sandbox &#x65F6;&#x4F7F;&#x7528;&#xFF0C;&#x540E;&#x7EED;&#x66F4;&#x6539;&#x5C06;&#x65E0;&#x6548;&#x3002;</p>
+</li>
+<li><p>&#x7BC4;&#x4F8B; 1.7 &#x81EA;&#x5B9A;&#x4E49;&#x4F7F;&#x7528;&#x7B26;&#x5408; WMTS &#x6807;&#x51C6;&#x7684;&#x5730;&#x56FE;&#x670D;&#x52A1;&#x3002;</p>
+</li>
+</ul>
+<h3 id="232">2.3.2</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2018&#x5E74;11&#x6708;29&#x65E5;</p>
+<p><strong>&#x6539;&#x8FDB;:</strong></p>
+<ul>
+<li>&#x5398;&#x6E05; <code>PolyFenceMarker</code> &#x4E2D; <code>texture</code>, <code>alphaMap</code>, <code>color</code> &#x8FD9;&#x4E09;&#x4E2A;&#x7684;&#x903B;&#x8F91;&#x5173;&#x7CFB; (altizure issue #230)<code>&#x3002;texture</code> &#x4E3A;&#x5F69;&#x8272;&#x7EB9;&#x7406;&#xFF0C;<code>alphaMap</code> &#x4E3A;&#x900F;&#x660E;&#x63A9;&#x7801;&#xFF0C;<code>color</code> &#x4E3A;&#x5E95;&#x8272;&#x3002; <code>&#x7BC4;&#x4F8B;2.4</code>&#x66F4;&#x65B0;&#x3002;</li>
+</ul>
+<p><strong>&#x65B0;&#x529F;&#x80FD;:</strong></p>
+<ul>
+<li><code>PlanarPatchMarker</code> &#x591A;&#x8FB9;&#x5F62;&#x9762;&#x7247;&#x6807;&#x6CE8;&#x3002;&#x6BCF;&#x4E2A;&#x9762;&#x7247;&#x7684;&#x8FB9;&#x754C;&#x70B9;&#x5B58;&#x5728;&#x4E8E;&#x540C;&#x4E00;&#x5E73;&#x9762;&#xFF0C;&#x9762;&#x7247;&#x8FB9;&#x754C;&#x4E0D;&#x5E94;&#x81EA;&#x4EA4;&#x3002;&#x9762;&#x7247;&#x53EF;&#x4EE5;&#x6709;&#x4EFB;&#x610F;&#x503E;&#x659C;&#x89D2;&#x5EA6;&#x3002;</li>
+<li><p><code>&#x7BC4;&#x4F8B; 2.13</code> &#x6D4B;&#x91CF;&#x4EFB;&#x610F;&#x503E;&#x659C;&#x89D2;&#x5EA6;&#xFF08;&#x5305;&#x62EC;&#x7ACB;&#x9762;&#xFF09;&#x591A;&#x8FB9;&#x5F62;&#x7684;<code>&#x5468;&#x957F;</code>&#x4E0E;<code>&#x9762;&#x79EF;</code>&#x3002;</p>
+</li>
+<li><p><code>VideoProjectorMarker</code> &#x89C6;&#x9891;&#x6295;&#x5F71;&#x6807;&#x6CE8;&#x3002;&#x7C7B;&#x4F3C;&#x4E8E; <code>CameraMarker</code> &#xFF0C;&#x5E76;&#x643A;&#x5E26;&#x4E00;&#x4E2A;&#x89C6;&#x9891;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x5C06;&#x89C6;&#x9891;&#x6587;&#x4EF6;&#x6295;&#x5F71;&#x5230;&#x5B9E;&#x666F;&#x6A21;&#x578B;&#x4E0A;&#x3002;</p>
+</li>
+<li><code>&#x7BC4;&#x4F8B; 7.3</code> video fusion &#x89C6;&#x9891;&#x878D;&#x5408;&#x3002;&#x53EF;&#x4EE5;&#x5C06;&#x4E00;&#x6BB5;&#x89C6;&#x9891;&#x4F5C;&#x4E3A; LOD &#x5B9E;&#x666F;&#x6A21;&#x578B;&#x7684;&#x52A8;&#x6001;&#x7EB9;&#x7406;&#x3002;</li>
+</ul>
+<h3 id="223">2.2.3</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2018&#x5E74;11&#x6708;27&#x65E5;</p>
+<p><strong>&#x7F3A;&#x9677;&#x4FEE;&#x590D;:</strong></p>
+<ul>
+<li>&#x4FEE;&#x590D; CanvasTagMarker &#x9AD8;&#x5EA6;&#x5C3A;&#x5BF8;&#x65E0;&#x6548;&#x3002;</li>
+</ul>
+<hr>
+<h3 id="222">2.2.2</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2018&#x5E74;11&#x6708;26&#x65E5;</p>
+<p><strong>&#x6539;&#x8FDB;:</strong></p>
+<ul>
+<li>&#x589E;&#x52A0;&#x4E86;<code>PolyFenceLineMarker</code>&#x7684;&#x900F;&#x660E;&#x901A;&#x9053; alphaChannel, &#x7BC4;&#x4F8B;2.4&#x66F4;&#x65B0;&#x3002;</li>
+</ul>
+<p><strong>&#x65B0;&#x529F;&#x80FD;:</strong></p>
+<ul>
+<li>LightBeamMarker &#x7BC4;&#x4F8B;2.10 &#x66F4;&#x65B0;&#x3002;</li>
+</ul>
+<hr>
+<h3 id="221">2.2.1</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2018&#x5E74;11&#x6708;23&#x65E5;</p>
+<p><strong>&#x65B0;&#x529F;&#x80FD;:</strong></p>
+<ul>
+<li>LightBeamMarker &#x589E;&#x52A0; opacity &#x548C;&#x4EA4;&#x4E92;&#x4E8B;&#x4EF6;&#x3002;&#xFF08;altizure issue #228&#xFF09;</li>
+</ul>
+<hr>
+<h3 id="212">2.1.2</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2018&#x5E74;11&#x6708;22&#x65E5;</p>
+<p><strong>&#x7F3A;&#x9677;&#x4FEE;&#x590D;:</strong></p>
+<ul>
+<li>&#x62C9;&#x8FD1;&#x76F8;&#x673A;&#x65F6;&#xFF0C;&#x6709;&#x4E9B;&#x9879;&#x76EE;&#x4F1A;&#x53D8;&#x6A21;&#x7CCA;&#x3002;&#xFF08;engine issue #55&#xFF09;</li>
+</ul>
+<hr>
+<h3 id="211">2.1.1</h3>
+<p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
+2018&#x5E74;11&#x6708;21&#x65E5;</p>
+<p><strong>&#x7BC4;&#x4F8B;&#x6539;&#x52A8;:</strong></p>
+<ul>
+<li>&#x3010;&#x7BC4;&#x4F8B;2.1.1&#x3011; &#x9879;&#x76EE;&#x4E0D;&#x4F1A;&#x9ED8;&#x8BA4;&#x5BFC;&#x5165;Altizure&#x7F51;&#x7AD9;&#x4E0A;&#x7684;&#x88C1;&#x526A;&#x7ED3;&#x679C;&#x3002;&#x5728;marker initialize&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;marker.loadCropMask()&#x6765;&#x5BFC;&#x5165;&#x3002;</li>
+<li>&#x3010;&#x7BC4;&#x4F8B;4.5&#x3011; &#x5728;&#x90E8;&#x5206;IOS&#x8BBE;&#x5907;&#xFF0C;&#x9AD8;&#x5EA6;alt &#x7684;&#x83B7;&#x5F97;&#x5EF6;&#x8FDF;&#x8F83;&#x9AD8;&#xFF0C;&#x53EF;&#x4EE5;&#x52A0;&#x5165;&#x4E00;&#x4E9B;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x6765;&#x7B49;&#x5F85;&#x9AD8;&#x5EA6;&#x7684;&#x66F4;&#x65B0;&#x3002;</li>
+<li>&#x3010;&#x7BC4;&#x4F8B;5.8&#xFF0C; 5.9&#x3011; &#x53EF;&#x89C6;&#x57DF;&#x5206;&#x6790;&#x8FDB;&#x884C;&#x4E86;&#x4F18;&#x5316;&#xFF0C;&#x52A0;&#x5165;&#x4E0D;&#x53EF;&#x89C6;&#x90E8;&#x5206;&#x4EE5;&#x7EA2;&#x8272;&#x8868;&#x793A;&#xFF0C;&#x53BB;&#x6389;&#x4E86;&#x4E0E;&#x8BE5;&#x5206;&#x6790;&#x65E0;&#x5173;&#x7684; color, intensity, penumbra, decay &#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x5927;&#x5E45;&#x63D0;&#x9AD8;&#x4E86;fps&#x3002;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x4E5F;&#x5C0F;&#x5E45;&#x5EA6;&#x8C03;&#x6574;&#xFF0C;&#x8BF7;&#x53C2;&#x8003;&#x7BC4;&#x4F8B;&#x3002;</li>
+</ul>
+<hr>
 <h3 id="0224">0.2.24</h3>
 <p><strong>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</strong>
 2018&#x5E74;6&#x6708;20&#x65E5;</p>
@@ -499,7 +805,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SDK 更新日志","level":"1.5.4","depth":2,"previous":{"title":"SDK 文档","level":"1.5.3","depth":2,"url":"ref://zh-hans/docs/user_docs/web/","ref":"ref://zh-hans/docs/user_docs/web/","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar","custom-favicon","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":{"cookieName":"docs_altizure","cookieDomain":"docs.altizure.com"},"token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure 开发团队","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure 开发平台文档","language":"zh-hans","links":{"home":"https://docs.altizure.com","sidebar":{"Altizure 开发平台":"https://developers.altizure.cn","Altizure.cn":"https://www.altizure.cn"}},"gitbook":"*","description":"关注 Altizure 开发平台，释放实景三维的无穷魅力"},"file":{"path":"jssdk-changelog.md","mtime":"2019-04-27T00:07:56.781Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-27T00:10:10.170Z"},"basePath":".","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"SDK 更新日志","level":"1.5.4","depth":2,"previous":{"title":"SDK 文档","level":"1.5.3","depth":2,"url":"ref://zh-hans/docs/user_docs/web/","ref":"ref://zh-hans/docs/user_docs/web/","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar","custom-favicon","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":{"cookieName":"docs_altizure","cookieDomain":"docs.altizure.com"},"token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure 开发团队","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure 开发平台文档","language":"zh-hans","links":{"home":"https://docs.altizure.com","sidebar":{"Altizure 开发平台":"https://developers.altizure.cn","Altizure.cn":"https://www.altizure.cn"}},"gitbook":"*","description":"关注 Altizure 开发平台，释放实景三维的无穷魅力"},"file":{"path":"jssdk-changelog.md","mtime":"2019-04-27T00:43:21.430Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-27T00:44:19.926Z"},"basePath":".","book":{"language":"zh-hans"}});
         });
     </script>
 </div>
