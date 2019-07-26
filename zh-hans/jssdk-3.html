@@ -1,0 +1,593 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3D SDK 教程 3.添加 marker · Altizure 开发平台文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Altizure 开发团队">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="jssdk-2.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://developers.altizure.cn" target="_blank" class="custom-link">Altizure 开发平台</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://www.altizure.cn" target="_blank" class="custom-link">Altizure.cn</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="concepts.html">
+            
+                <a href="concepts.html">
+            
+                    
+                    基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="dev-account.html">
+            
+                <a href="dev-account.html">
+            
+                    
+                    开发者账号申请
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="jssdk.html">
+            
+                <a href="jssdk.html">
+            
+                    
+                    JavaScript 3D SDK
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="jssdk-1.html">
+            
+                <a href="jssdk-1.html">
+            
+                    
+                    3D SDK 教程 1.快速开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="jssdk-2.html">
+            
+                <a href="jssdk-2.html">
+            
+                    
+                    3D SDK 教程 2.如何加载 Altizure 项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.3" data-path="jssdk-3.html">
+            
+                <a href="jssdk-3.html">
+            
+                    
+                    3D SDK 教程 3.添加 marker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" >
+            
+                <a target="_blank" href="ref://docs/user_docs/web/">
+            
+                    
+                    3D SDK 文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="jssdk-faq.html">
+            
+                <a href="jssdk-faq.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="jssdk-demo.html">
+            
+                <a href="jssdk-demo.html">
+            
+                    
+                    进阶应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="jssdk-changelog.html">
+            
+                <a href="jssdk-changelog.html">
+            
+                    
+                    3D SDK 更新日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="api.html">
+            
+                <a href="api.html">
+            
+                    
+                    GraphQL API
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="api-reconstruction.html">
+            
+                <a href="api-reconstruction.html">
+            
+                    
+                    三维重建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="upload.html">
+            
+                <a href="upload.html">
+            
+                    
+                    上传图像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" >
+            
+                <a target="_blank" href="https://api.altizure.cn/graphql">
+            
+                    
+                    API 文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="api-changelog.html">
+            
+                <a href="api-changelog.html">
+            
+                    
+                    API 更新日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >3D SDK 教程 3.添加 marker</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="3d-sdk-&#x6559;&#x7A0B;-3&#x6DFB;&#x52A0;-marker">3D SDK &#x6559;&#x7A0B; 3.&#x6DFB;&#x52A0; marker</h1>
+<p>Altizure SDK &#x4E3A;&#x5F00;&#x53D1;&#x8005;&#x63D0;&#x4F9B;&#x4E86;&#x591A;&#x79CD;&#x591A;&#x6837;&#x7684; marker &#x6765;&#x4E30;&#x5BCC;&#x60A8;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x8FC7;&#x591A;&#x7684;&#x5185;&#x5BB9;&#x6253;&#x6270;&#x60A8;&#x4F7F;&#x7528;&#x7684;&#x5174;&#x8DA3;&#xFF0C;&#x672C;&#x7AE0;&#x8282;&#x5C06;&#x5206;&#x4E3A;&#x5C0F;&#x767D;&#x90E8;&#x5206;&#x548C;&#x8FDB;&#x9636;&#x90E8;&#x5206;&#xFF0C;&#x5C0F;&#x767D;&#x90E8;&#x5206;&#x4EC5;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x6DFB;&#x52A0;&#x6700;&#x57FA;&#x7840;&#x7684; marker &#xFF0C;&#x4E4B;&#x540E;&#x5728;&#x8FDB;&#x9636;&#x90E8;&#x5206;&#x4F1A;&#x5BF9; marker &#x66F4;&#x52A0;&#x4E30;&#x5BCC;&#x7684;&#x529F;&#x80FD;&#x548C;&#x66F4;&#x52A0;&#x591A;&#x6837;&#x7684;&#x79CD;&#x7C7B;&#x8FDB;&#x884C;&#x8BF4;&#x660E;&#x548C;&#x5217;&#x4E3E;&#x3002;</p>
+<p>&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;&#x6570;&#x636E;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x70B9;&#x3001;&#x7EBF;&#x3001;&#x9762;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x4E5F;&#x6709;&#x76F8;&#x5BF9;&#x5E94;&#x7684; marker &#x6765;&#x5E2E;&#x52A9;&#x60A8;&#x5B9E;&#x73B0;&#x5E94;&#x7528;&#x3002;</p>
+<h2 id="1-&#x5C0F;&#x767D;&#x90E8;&#x5206;">1. &#x5C0F;&#x767D;&#x90E8;&#x5206;</h2>
+<h4 id="11-&#x70B9;&#x6570;&#x636E;----tagmarker">1.1 &#x70B9;&#x6570;&#x636E; -- TagMarker</h4>
+<p>Tag Marker &#x662F;&#x6700;&#x57FA;&#x7840;&#x7684;&#x70B9;&#x6570;&#x636E;&#x7684;&#x6DFB;&#x52A0;</p>
+<p><img src="img/tutorial/3.1.png" alt="TagMarker&#x6548;&#x679C;&#x5C55;&#x793A;"></p>
+<pre><code class="lang-js">  <span class="hljs-keyword">let</span> tag1 = <span class="hljs-keyword">new</span> altizure.TagMarker({
+    <span class="hljs-comment">// icon image url</span>
+    imgUrl: <span class="hljs-string">&apos;../public/assets/img/meta_description.png&apos;</span>,
+    <span class="hljs-comment">// icon position</span>
+    position: {lng: <span class="hljs-number">113.9390549031058</span>, lat: <span class="hljs-number">22.53601411862488</span>, alt: <span class="hljs-number">59.03098709697936</span>},
+    <span class="hljs-comment">// scene</span>
+    sandbox: sandbox,
+    <span class="hljs-comment">// icon size</span>
+    scale: <span class="hljs-number">1</span>
+  })
+</code></pre>
+<p>&#x5728;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x8BBE;&#x7F6E; marker &#x7684;&#x56FE;&#x6807;&#x3001;&#x4F4D;&#x7F6E;&#x3001;&#x5927;&#x5C0F;&#x7B49;&#x3002;</p>
+<p>&#x76F8;&#x5173;&#x90E8;&#x5206;&#x8BF7;&#x53C2;&#x8003;&#x8303;&#x4F8B; 2.2</p>
+<h4 id="12-&#x7EBF;&#x6570;&#x636E;----polylinemarker">1.2 &#x7EBF;&#x6570;&#x636E; -- PolyLineMarker</h4>
+<p><img src="img/tutorial/3.2.png" alt="PolylineMarker&#x6548;&#x679C;&#x5C55;&#x793A;"></p>
+<pre><code class="lang-js">  <span class="hljs-keyword">let</span> pts3 = [
+    {lng:<span class="hljs-number">113.94004434545403</span>, lat:<span class="hljs-number">22.536430666836896</span>, alt:<span class="hljs-number">8.529936080552108</span>},
+    {lng:<span class="hljs-number">113.93989197826778</span>, lat:<span class="hljs-number">22.53642506074514</span>,  alt:<span class="hljs-number">8.37267703295911</span>},
+    {lng:<span class="hljs-number">113.93992379693061</span>, lat:<span class="hljs-number">22.536772011456577</span>, alt: <span class="hljs-number">14.698098228363094</span>},
+    {lng:<span class="hljs-number">113.93948096227913</span>, lat:<span class="hljs-number">22.536774790964845</span>, alt: <span class="hljs-number">8.07877871224377</span>},
+    {lng:<span class="hljs-number">113.93946847564925</span>, lat:<span class="hljs-number">22.537257065188992</span>, alt: <span class="hljs-number">7.9259919311032805</span>},
+    {lng:<span class="hljs-number">113.93937849508251</span>, lat: <span class="hljs-number">22.537250183225215</span>,alt: <span class="hljs-number">9.203476070513277</span>}
+  ]
+
+  <span class="hljs-keyword">let</span> pl3 = <span class="hljs-keyword">new</span> altizure.PolyLineMarker({
+    name: <span class="hljs-string">&apos;pl3&apos;</span>,
+    sandbox: sandbox,
+    points: pts3,
+    color: <span class="hljs-number">0x26b74f</span>,
+    fenceHeight: <span class="hljs-number">10</span>
+  })
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x8BBE;&#x7F6E; polyline marker &#x7684;&#x70B9;&#x3001;&#x989C;&#x8272;&#x3001;&#x7EBF;&#x7684;&#x9AD8;&#x5EA6;&#x7B49;&#x3002;
+&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x8BF7;&#x53C2;&#x8003;&#x8303;&#x4F8B;2.4</p>
+<h4 id="13-&#x9762;&#x4F53;&#x6570;&#x636E;----polygonmarker">1.3 &#x9762;/&#x4F53;&#x6570;&#x636E; -- PolygonMarker</h4>
+<p><img src="img/tutorial/3.3.png" alt="PolygonMarker&#x6548;&#x679C;&#x5C55;&#x793A;"></p>
+<pre><code class="lang-js">  <span class="hljs-keyword">let</span> volume1 = {
+    color: <span class="hljs-number">0xf18100</span>,
+    opacity: <span class="hljs-number">0.3</span>,
+    points: [
+      {lng:<span class="hljs-number">113.93925941184116</span>, lat:<span class="hljs-number">22.536038196392003</span>, alt::<span class="hljs-number">0</span>},
+      {lng:<span class="hljs-number">113.93939916032888</span>, lat:<span class="hljs-number">22.53604334346038</span>, alt::<span class="hljs-number">0</span>},
+      {lng:<span class="hljs-number">113.93949169260934</span>, lat:<span class="hljs-number">22.535989287779092</span>, alt::<span class="hljs-number">0</span>},
+      {lng:<span class="hljs-number">113.93968369699786</span>, lat:<span class="hljs-number">22.536004548701953</span>, alt::<span class="hljs-number">0</span>},
+      {lng:<span class="hljs-number">113.93980670120246</span>, lat:<span class="hljs-number">22.536189580024878</span>, alt::<span class="hljs-number">0</span>},
+      {lng:<span class="hljs-number">113.93979655362506</span>, lat:<span class="hljs-number">22.536343017899227</span>, alt::<span class="hljs-number">0</span>},
+      {lng:<span class="hljs-number">113.93966951962702</span>, lat:<span class="hljs-number">22.536531935218072</span>, alt::<span class="hljs-number">0</span>},
+      {lng:<span class="hljs-number">113.93941344618156</span>, lat:<span class="hljs-number">22.536525930027356</span>, alt::<span class="hljs-number">0</span>},
+      {lng:<span class="hljs-number">113.93929820633633</span>, lat:<span class="hljs-number">22.536458412171328</span>, alt::<span class="hljs-number">0</span>},
+      {lng:<span class="hljs-number">113.93936482152544</span>, lat:<span class="hljs-number">22.53637169479775</span>, alt::<span class="hljs-number">0</span>},
+      {lng:<span class="hljs-number">113.93929172179965</span>, lat:<span class="hljs-number">22.53637475960443</span>, alt::<span class="hljs-number">0</span>},
+      {lng:<span class="hljs-number">113.9393084139167</span>, lat:<span class="hljs-number">22.53630775602314</span>, alt::<span class="hljs-number">0</span>},
+      {lng:<span class="hljs-number">113.93925819093029</span>, lat:<span class="hljs-number">22.53630539546885</span>, alt::<span class="hljs-number">0</span>},
+      {lng:<span class="hljs-number">113.93925941184116</span>, lat:<span class="hljs-number">22.536038196392003</span>, alt::<span class="hljs-number">0</span>}
+    ]
+    top: <span class="hljs-number">40</span>, 
+    bottom: <span class="hljs-number">0</span>,
+  }
+  <span class="hljs-keyword">let</span> poly1 = <span class="hljs-keyword">new</span> altizure.PolygonMarker({
+    volume: volume1,
+    sandbox: sandbox,
+    name: <span class="hljs-string">&apos;polygon1&apos;</span>,
+  })
+</code></pre>
+<p>&#x591A;&#x8FB9;&#x5F62;&#x9700;&#x8981;&#x95ED;&#x5408;&#xFF0C;&#x5373;&#x6240;&#x7528;&#x70B9;&#x6570;&#x7EC4;&#x7684;&#x9996;&#x5C3E;&#x4E24;&#x4E2A;&#x70B9;&#x9700;&#x8981;&#x4E00;&#x6837;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x8BBE;&#x7F6E; polygon marker &#x7684;&#x70B9;&#x3001;&#x989C;&#x8272;&#x3001;&#x9AD8;&#x5EA6;&#x7B49;&#x3002;</p>
+<p>&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x8BF7;&#x53C2;&#x8003;&#x8303;&#x4F8B;2.3</p>
+<h4 id="14-&#x5C0F;&#x7ED3;">1.4 &#x5C0F;&#x7ED3;</h4>
+<p>&#x81F3;&#x6B64;&#xFF0C;&#x6700;&#x57FA;&#x7840;&#x7684;&#x70B9;&#x3001;&#x7EBF;&#x3001;&#x9762;&#x7684;&#x6570;&#x636E;&#x548C;&#x76F8;&#x5E94; marker &#x5982;&#x4F55;&#x663E;&#x793A;&#x5DF2;&#x7ECF;&#x4ECB;&#x7ECD;&#x5B8C;&#x4E86;&#x3002;</p>
+<p>&#x5EFA;&#x8BAE;&#x60A8;&#x5148;&#x5B8C;&#x6210;&#x5176;&#x4ED6;&#x6559;&#x7A0B;&#x7684;&#x5C0F;&#x767D;&#x90E8;&#x5206;&#xFF0C;&#x4E4B;&#x540E;&#x5728;&#x5C1D;&#x8BD5;&#x8FDB;&#x9636;&#x90E8;&#x5206;&#x3002;</p>
+<h2 id="2-&#x8FDB;&#x9636;&#x90E8;&#x5206;">2. &#x8FDB;&#x9636;&#x90E8;&#x5206;</h2>
+<h4 id="21-marker-&#x7684;&#x9F20;&#x6807;&#x4E8B;&#x4EF6;">2.1 marker &#x7684;&#x9F20;&#x6807;&#x4E8B;&#x4EF6;</h4>
+<p>&#x8FD9;&#x91CC;&#x6240;&#x5217;&#x7684;&#x6240;&#x6709; marker &#x90FD;&#x53EF;&#x4EE5;&#x76F8;&#x5E94;&#x9F20;&#x6807;&#x4E8B;&#x4EF6;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x8981;&#x6253;&#x5F00; marker &#x7684; interactable</p>
+<pre><code class="lang-js">  tag.interactable = <span class="hljs-literal">true</span>
+</code></pre>
+<p>&#x7136;&#x540E;&#x5BF9;&#x60F3;&#x8981;&#x54CD;&#x5E94;&#x7684;&#x9F20;&#x6807;&#x4E8B;&#x4EF6;&#x8FDB;&#x884C;&#x5B9A;&#x4E49;&#xFF0C;&#x76EE;&#x524D;&#x5F00;&#x653E;&#x7684;&#x9F20;&#x6807;&#x4E8B;&#x4EF6;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-js">  tag.on(<span class="hljs-string">&apos;mouseenter&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;enter&quot;</span>) })
+  tag.on(<span class="hljs-string">&apos;mouseleave&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)  </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;leave&quot;</span>) })
+  tag.on(<span class="hljs-string">&apos;mouseover&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;over&quot;</span>)})
+  tag.on(<span class="hljs-string">&apos;click&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)  </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;click&quot;</span>)})
+  tag.on(<span class="hljs-string">&apos;mousedrag&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)  </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;darg&quot;</span>)})
+</code></pre>
+<h4 id="22-&#x66F4;&#x591A;&#x7684;&#x70B9;&#x72B6;-marker">2.2 &#x66F4;&#x591A;&#x7684;&#x70B9;&#x72B6; marker</h4>
+<h5 id="221-&#x6587;&#x5B57;&#x6807;&#x7B7E;----texttagmarker">2.2.1 &#x6587;&#x5B57;&#x6807;&#x7B7E; -- TextTagMarker</h5>
+<p>&#x548C; TagMarker &#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x5927;&#x81F4;&#x76F8;&#x540C;&#xFF0C;&#x672C; marker &#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x663E;&#x793A;&#x7684;&#x6587;&#x5B57;&#x4FE1;&#x606F;&#x3002;
+&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x548C;&#x6548;&#x679C;&#x8BF7;&#x53C2;&#x8003;&#x8303;&#x4F8B; 2.6&#x3002;</p>
+<h5 id="222-&#x81EA;&#x5B9A;&#x4E49;&#x6807;&#x7B7E;----canvastagmarker">2.2.2 &#x81EA;&#x5B9A;&#x4E49;&#x6807;&#x7B7E; -- CanvasTagMarker</h5>
+<p>&#x548C; TagMarker &#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x5927;&#x81F4;&#x76F8;&#x540C;&#xFF0C;&#x672C; marker &#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x663E;&#x793A;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x8C03;&#x6574;&#x65B9;&#x6CD5;&#x4E0E; HTML &#x7684; canvas &#x6807;&#x7B7E;&#x4E00;&#x81F4;&#x3002;
+&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x548C;&#x6548;&#x679C;&#x8BF7;&#x53C2;&#x8003;&#x8303;&#x4F8B; 2.9&#x3002;</p>
+<h5 id="223-&#x5149;&#x67F1;&#x6807;&#x7B7E;----lightbeammarker">2.2.3 &#x5149;&#x67F1;&#x6807;&#x7B7E; -- LightBeamMarker</h5>
+<p>&#x7B80;&#x5355;&#x5B9E;&#x7528;&#x7684;&#x5149;&#x67F1; marker&#x3002;
+&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x548C;&#x6548;&#x679C;&#x8BF7;&#x53C2;&#x8003;&#x8303;&#x4F8B; 2.10&#x3002;</p>
+<h4 id="23-&#x66F4;&#x591A;&#x7684;&#x7EBF;&#x72B6;-marker">2.3 &#x66F4;&#x591A;&#x7684;&#x7EBF;&#x72B6; marker</h4>
+<h5 id="231-&#x5706;&#x67F1;&#x5F62;&#x591A;&#x6BB5;&#x7EBF;----polycylinderlinemarker">2.3.1 &#x5706;&#x67F1;&#x5F62;&#x591A;&#x6BB5;&#x7EBF; -- PolyCylinderLineMarker</h5>
+<p>&#x53EA;&#x80FD;&#x8C03;&#x989C;&#x8272;&#x548C;&#x900F;&#x660E;&#x5EA6;&#x7684;&#x5706;&#x67F1;&#x5F62;&#x591A;&#x6BB5;&#x7EBF;&#x3002;
+&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x548C;&#x6548;&#x679C;&#x8BF7;&#x53C2;&#x8003;&#x8303;&#x4F8B; 2.8&#x3002;</p>
+<h5 id="232-&#x81EA;&#x5B9A;&#x4E49;&#x52A8;&#x753B;&#x7684;&#x5706;&#x67F1;&#x5F62;&#x591A;&#x6BB5;&#x7EBF;----polytubelinemarker">2.3.2 &#x81EA;&#x5B9A;&#x4E49;&#x52A8;&#x753B;&#x7684;&#x5706;&#x67F1;&#x5F62;&#x591A;&#x6BB5;&#x7EBF; -- PolyTubeLineMarker</h5>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x4F5C;PolyCylinderLineMarker&#x7684;&#x5347;&#x7EA7;&#x7248;&#xFF0C;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x52A8;&#x753B;&#x6548;&#x679C;&#x3002;
+&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x548C;&#x6548;&#x679C;&#x8BF7;&#x53C2;&#x8003;&#x8303;&#x4F8B; 2.14&#x3002;</p>
+<h4 id="24-&#x66F4;&#x591A;&#x7684;&#x9762;&#x4F53;&#x72B6;-marker">2.4 &#x66F4;&#x591A;&#x7684;&#x9762;/&#x4F53;&#x72B6; marker</h4>
+<h5 id="241-&#x6B63;&#x591A;&#x8FB9;&#x5F62;----regularpolygonmarker">2.4.1 &#x6B63;&#x591A;&#x8FB9;&#x5F62; -- RegularPolygonMarker</h5>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x4E0E; PolygonMarker &#x5927;&#x81F4;&#x76F8;&#x540C;&#xFF0C;&#x4E0D;&#x8FC7;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x672C;&#x591A;&#x8FB9;&#x5F62;&#x7684;&#x4E2D;&#x5FC3;&#x4F4D;&#x7F6E;&#x3001;&#x534A;&#x5F84;&#x3001;&#x8FB9;&#x6570;&#x7B49;&#x3002;
+&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x548C;&#x6548;&#x679C;&#x8BF7;&#x53C2;&#x8003;&#x8303;&#x4F8B; 2.3&#x3002;</p>
+<h5 id="242-&#x5706;&#x67F1;----cylindervolumemarker">2.4.2 &#x5706;&#x67F1; -- CylinderVolumeMarker</h5>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x4E0E; PolygonMarker &#x5927;&#x81F4;&#x76F8;&#x540C;&#xFF0C;&#x4E0D;&#x8FC7;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x672C;&#x591A;&#x8FB9;&#x5F62;&#x7684;&#x4E2D;&#x5FC3;&#x4F4D;&#x7F6E;&#x3001;&#x534A;&#x5F84;&#x7B49;&#x3002;
+&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x548C;&#x6548;&#x679C;&#x8BF7;&#x53C2;&#x8003;&#x8303;&#x4F8B; 2.3&#x3002;</p>
+<h5 id="243-&#x533A;&#x57DF;----zonemarker">2.4.3 &#x533A;&#x57DF; -- ZoneMarker</h5>
+<p>&#x5B9A;&#x5236;&#x5316;&#x7684;&#x591A;&#x8FB9;&#x5F62;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x7528;&#x6237;&#x5728;&#x4E0D;&#x540C;&#x89D2;&#x5EA6;&#x770B;&#x5230;&#x548C;&#x672C;&#x591A;&#x8FB9;&#x5F62;&#x6709;&#x5173;&#x7684;&#x6587;&#x5B57;&#xFF08;&#x5982;&#xFF1A;&#x201C;&#x7981;&#x6B62;&#x8FDB;&#x5165;&#x201D;&#xFF09;&#x3002;
+&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x548C;&#x6548;&#x679C;&#x8BF7;&#x53C2;&#x8003;&#x8303;&#x4F8B; 2.11&#x3002;</p>
+<h5 id="244-&#x6316;&#x5751;----ditchmarker">2.4.4 &#x6316;&#x5751; -- DitchMarker</h5>
+<p>&#x5DF2;&#x5305;&#x88C5;&#x597D;&#x7684; PolygonMarker &#xFF0C;&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x571F;&#x58E4;&#x7684;&#x8D34;&#x56FE;&#xFF0C;&#x9002;&#x5B9C;&#x7528;&#x4F5C;&#x7BA1;&#x7EBF;&#x586B;&#x6316;&#x3001;&#x8DEF;&#x9762;&#x5F00;&#x6316;&#x3001;&#x5730;&#x57FA;&#x623F;&#x57FA;&#x7B49;&#x7684;&#x5C55;&#x793A;&#x3002;
+&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x548C;&#x6548;&#x679C;&#x8BF7;&#x53C2;&#x8003;&#x8303;&#x4F8B; 6.3&#x3002;</p>
+<h2 id="3-&#x5C0F;&#x7ED3;">3. &#x5C0F;&#x7ED3;</h2>
+<p>&#x672C;&#x6559;&#x7A0B;&#x4ECB;&#x7ECD;&#x4E86; Altizure SDK &#x4E2D;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#x7684; marker &#xFF0C;</p>
+<h2 id="4-&#x4E86;&#x89E3;&#x66F4;&#x591A;">4. &#x4E86;&#x89E3;&#x66F4;&#x591A;</h2>
+<ul>
+<li><a href="https://docs.altizure.com/zh-hans/docs/user_docs/web/" target="_blank">Altizure SDK &#x6587;&#x6863;</a></li>
+<li><a href="https://developers.altizure.com/demo" target="_blank">&#x6F14;&#x793A;&#x8303;&#x4F8B;</a></li>
+</ul>
+<p>&#x2014;</p>
+<p>&#x8BE5;&#x6587;&#x6863;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x4E8E; Fri Jul 26 2019 09:22:24 GMT+0000 (Coordinated Universal Time)</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="jssdk-2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 3D SDK 教程 2.如何加载 Altizure 项目">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3D SDK 教程 3.添加 marker","level":"1.4.3","depth":2,"next":{"title":"3D SDK 文档","level":"1.4.4","depth":2,"url":"ref://docs/user_docs/web/","ref":"ref://docs/user_docs/web/","articles":[]},"previous":{"title":"3D SDK 教程 2.如何加载 Altizure 项目","level":"1.4.2","depth":2,"path":"jssdk-2.md","ref":"jssdk-2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar","custom-favicon","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":{"cookieName":"docs_altizure","cookieDomain":"docs.altizure.com"},"token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure 开发团队","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure 开发平台文档","language":"zh-hans","links":{"home":"https://docs.altizure.com","sidebar":{"Altizure 开发平台":"https://developers.altizure.cn","Altizure.cn":"https://www.altizure.cn"}},"gitbook":"*","description":"关注 Altizure 开发平台，释放实景三维的无穷魅力"},"file":{"path":"jssdk-3.md","mtime":"2019-07-26T09:22:24.237Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-26T09:26:25.802Z"},"basePath":".","book":{"language":"zh-hans"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-otherlink/js/otherlink.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

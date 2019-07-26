@@ -337,7 +337,7 @@
 or Aliyun. Your images are protected securely. Others could not read or modify your images. That is why you need to obtain the authorizations from our api. As filename is the only identifier in the buckets, the image is required to be uploaded to a specific url (S3) or prefix (OSS) so that Altizure knows which image is which.</p>
 <h3 id="1-choose-bucket">1. Choose bucket</h3>
 <p>Choose one of the fastest S3 or OSS buckets. This is largely correlated to your network zone with the edge-points.
-You may simply query <code>GeoIPInfo.nearestBuckets</code> for hints for auto selecting the best edge for your clients.</p>
+You may simply query <code>getGeoIPInfo.nearestBuckets</code> for hints for auto selecting the best edge for your clients.</p>
 <h3 id="2-compute-image-checksum">2. Compute image checksum</h3>
 <p>Compute the sha1sum hash for each image.
 Before each upload, check if the current image has already been uploaded by calling the mutation <code>hasImage(pid, checksum)</code>.
@@ -349,11 +349,17 @@ If it has expired, renew with the same mutation. Otherwise, only request the <co
 <p>In order to keep track of the state, just before an image is uploaded, call mutation <code>startImageUpload(id)</code> to signal the start of the process. When the upload is done, call mutation <code>doneImageUpload(id)</code>.</p>
 <p>flow chart:
 <img src="img/oss_en.jpg" alt="flow"></p>
+<ul>
+<li>Minimal Example with Javascript in Browser: <a href="https://github.com/altizure/oss-upload-minimal" target="_blank">https://github.com/altizure/oss-upload-minimal</a></li>
+</ul>
 <h3 id="4-upload-to-s3">4. Upload to S3</h3>
 <p>If a S3 bucket is chosen, uploading is much simpler.
-For each image, call the mutation <code>uploadImageS3(pid, bucket, filename, type, checksum)</code> to obtain a temporary (3 hours) signed url and the related meta image info.</p>
+For each image, call the mutation <code>uploadImageS3(pid, bucket, filename, type, checksum)</code> to obtain a temporary (3 hours) signed url and the related meta image info. You are recommended to get the <code>image.id</code> from this mutation because it is required for the next mutation.</p>
 <p>Given the signed url, use the standard HTTP put to put the file to this url with <code>Content-type: JPEG</code> or other formats accordingly.</p>
-<p>Just before each upload, it is required to call mutation <code>startImageUpload(id)</code>. There is no need to signal the end of uploading.</p>
+<p>Just before each upload, it is required to call mutation <code>startImageUpload(id)</code>. <code>id</code> is <code>image.id</code>, which is fetched previously. There is no need to signal the end of uploading.</p>
+<ul>
+<li>Minimal Example with NodeJS: <a href="https://github.com/altizure/s3-upload-minimal-example" target="_blank">https://github.com/altizure/s3-upload-minimal-example</a></li>
+</ul>
 <h3 id="5-wait-for-image-processing">5. Wait for image processing</h3>
 <p>Uploaded images will be copied, verified and processed. Eventually, the image state will become either <code>Ready</code> or <code>Invalid</code>.
 If the total count of <code>Ready</code> matches the desired number, you may call mutation <code>startReconstructionWithError(id, options)</code> to start the reconstruction. Otherwise, you may consider re-uploading any outstanding image as indicated by the mutation <code>hasImage</code>.</p>
@@ -361,14 +367,17 @@ If the total count of <code>Ready</code> matches the desired number, you may cal
 <h3 id="next">Next</h3>
 <p>After images are processed. you could start a <a href="api-reconstruction.html">reconstruction</a>.</p>
 <h2 id="example">Example</h2>
-<p><a href="https://github.com/altizure/oss-upload-minimal" target="_blank">https://github.com/altizure/oss-upload-minimal</a></p>
+<ul>
+<li>OSS: <a href="https://github.com/altizure/oss-upload-minimal" target="_blank">https://github.com/altizure/oss-upload-minimal</a></li>
+<li>S3: <a href="https://github.com/altizure/s3-upload-minimal-example" target="_blank">https://github.com/altizure/s3-upload-minimal-example</a></li>
+</ul>
 <h2 id="learn-more">Learn more</h2>
 <ul>
 <li>Learn more about <a href="https://www.alibabacloud.com/help/doc-detail/31953.htm?spm=a3c0i.o31952en.b99.284.7ab2aa72OYaf6D" target="_blank">STS</a></li>
 <li>Aliyun OSS Javascript SDK: <a href="https://github.com/ali-sdk/ali-oss" target="_blank">link</a></li>
 </ul>
 <hr>
-<p>Last modified at Mon Jul 08 2019 02:40:04 GMT+0000 (Coordinated Universal Time)</p>
+<p>Last modified at Fri Jul 26 2019 09:22:24 GMT+0000 (Coordinated Universal Time)</p>
 
                                 
                                 </section>
@@ -408,7 +417,7 @@ If the total count of <code>Ready</code> matches the desired number, you may cal
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Images Upload","level":"1.4.2","depth":2,"next":{"title":"API Reference","level":"1.4.3","depth":2,"url":"https://api.altizure.com/graphql","ref":"https://api.altizure.com/graphql","articles":[]},"previous":{"title":"3D Reconstruction","level":"1.4.1","depth":2,"path":"api-reconstruction.md","ref":"api-reconstruction.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar","custom-favicon","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":{"cookieName":"docs_altizure","cookieDomain":"docs.altizure.com"},"token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure Open Platform Documentation","language":"en","links":{"home":"https://docs.altizure.com","sidebar":{"Altizure Developers":"https://developers.altizure.com","Altizure.com":"https://www.altizure.com"}},"gitbook":"*","description":"Altizure Development Platform. Unleash the power of realistic 3D models"},"file":{"path":"upload.md","mtime":"2019-07-08T02:40:04.399Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-08T02:44:26.731Z"},"basePath":".","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Images Upload","level":"1.4.2","depth":2,"next":{"title":"API Reference","level":"1.4.3","depth":2,"url":"https://api.altizure.com/graphql","ref":"https://api.altizure.com/graphql","articles":[]},"previous":{"title":"3D Reconstruction","level":"1.4.1","depth":2,"path":"api-reconstruction.md","ref":"api-reconstruction.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","language-picker","toolbar","custom-favicon","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://docs.altizure.com/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon.ico","custom-favicon":{},"ga":{"configuration":{"cookieName":"docs_altizure","cookieDomain":"docs.altizure.com"},"token":"UA-70332606-7"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/altizure/dev-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/altizure/dev-docs/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Altizure Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Altizure Open Platform Documentation","language":"en","links":{"home":"https://docs.altizure.com","sidebar":{"Altizure Developers":"https://developers.altizure.com","Altizure.com":"https://www.altizure.com"}},"gitbook":"*","description":"Altizure Development Platform. Unleash the power of realistic 3D models"},"file":{"path":"upload.md","mtime":"2019-07-26T09:22:24.202Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-26T09:26:25.802Z"},"basePath":".","book":{"language":"en"}});
         });
     </script>
 </div>
